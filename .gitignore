@@ -1,3 +1,5 @@
 build/
 .vscode/
+cat .gitignore 
 .idea
+cmake-build-debug
