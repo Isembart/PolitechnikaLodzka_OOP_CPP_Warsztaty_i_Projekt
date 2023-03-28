@@ -9,12 +9,18 @@ int main(int argc, char* argv[]) {
     cout << "hello world!"<<endl;  
     cout << factorial(5) << endl;
 
-    Client client1;
-    Client *client2 = new Client;
+    //konstruktor z lista inicjalizacyjną pozwala na ustawienie pustego imienia lub nazwiska!
+    Client client1 = Client("Marcus", "Statyczny",0);
+    Client *client2 = new Client("Marcus", "Dynamiczny", 151231);
 
-    client1.setFirstName("john");
-    client2->setFirstName("marcus");
     cout<<client1.getClientInfo()<<endl;
     cout<<client2->getClientInfo()<<endl;
+
+    client2->setFirstName("Jonasz");
+    client2->setFirstName(""); //setter nie pozwala na ustawienie pustego imienia, imie będzie równe "Jonasz"
+
+    cout<<client2->getClientInfo()<<endl;
+
+    delete client2;
     return 0;
 }
