@@ -12,16 +12,16 @@ private:
     
 public:
     Address();
-    Address(std::string _city, std::string _street, std::string _number);
+    Address(const std::string &_city, const std::string &_street, const std::string &_number);
     ~Address();
-    std::string getAdressInfo(); 
-    std::string getCity();
-    std::string getStreet();
-    std::string getNumber();
+    const std::string getAdressInfo() const; 
+    const std::string getCity() const;
+    const std::string getStreet() const;
+    const std::string getNumber() const;
 
-    void setCity(std::string);
-    void setStreet(std::string);
-    void setNumber(std::string);
+    // void setCity(std::string);
+    // void setStreet(std::string);
+    // void setNumber(std::string);
 };
 
 #endif

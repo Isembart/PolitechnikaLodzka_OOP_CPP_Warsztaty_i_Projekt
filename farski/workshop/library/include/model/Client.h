@@ -11,12 +11,12 @@ private:
     Address* address;
     Client();
 public:
-    void setFirstName(std::string);
-    void setLastName(std::string);
+    void setFirstName(const std::string &_firsName);
+    void setLastName(const std::string &_lastName);
     void setAddress(Address *_address);
-    Address *getAddress();
+    const Address *getAddress() const;
     std::string getClientInfo();
-    Client(std::string fName, std::string lName, int id, Address *adr);
+    Client(const std::string &fName, const std::string &lName, const int &id, Address *adr);
     ~Client();
 };
 

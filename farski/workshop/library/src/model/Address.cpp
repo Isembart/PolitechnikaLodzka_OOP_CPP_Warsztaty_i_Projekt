@@ -7,7 +7,7 @@ Address::Address(){
     number = "0";
 }
 
-Address::Address(std::string _city, std::string _street, std::string _number)
+Address::Address(const std::string &_city, const std::string &_street, const std::string &_number)
 {
     city = _city;
     street = _street;
@@ -19,30 +19,30 @@ Address::~Address()
 }
 
 //Gettery
-std::string Address::getCity(){
+const std::string Address::getCity() const{
     return city;  
 }
-std::string Address::getStreet(){
+const std::string Address::getStreet() const {
     return street;  
 }
-std::string Address::getNumber(){
+const std::string Address::getNumber() const{
     return number;  
 }
 
 //settery
-void Address::setCity(std::string _city) {
-    city = _city;
-}
+// void Address::setCity(std::string _city) {
+//     city = _city;
+// }
 
-void Address::setStreet(std::string _street) {
-    street = _street;
-}
+// void Address::setStreet(std::string _street) {
+//     street = _street;
+// }
 
-void Address::setNumber(std::string _number) {
-    number = _number;
-}
+// void Address::setNumber(std::string _number) {
+//     number = _number;
+// }
 
 
-std::string Address::getAdressInfo(){
+const std::string Address::getAdressInfo() const{
     return city + " " + street + " " + number;
 }
