@@ -1,4 +1,3 @@
-#include "model/Client.h"
 #include <iostream>
 #include "Client.h"
 #include <string>
@@ -21,14 +20,26 @@ void Client::setLastName(std::string lName)
     }
 }
 
-//void Client::setPersonalID(int id)
+void Client::setAddress(Address* _address)
+{
+    if(_address != nullptr)
+    {
+        address = _address;
+    }
+}
+
+Address* Client::getAddress() {
+    return address;
+}
+
+// void Client::setPersonalID(int id)
 //{
-    //personalID = id;
+// personalID = id;
 //}
 
 std::string Client::getClientInfo()
 {   
-    return firstName + lastName + std::to_string(personalID);
+    return firstName + " "+ lastName + " " + std::to_string(personalID) + ", " + address->getAdressInfo();
 }
 
 //Nie używamy konstruktora domyślnego
@@ -41,11 +52,12 @@ std::string Client::getClientInfo()
     //std::cout<<getClientInfo()<<std::endl;
 //}
 
-Client::Client(std::string fName, std::string lName, int id) : firstName(fName) , lastName(lName) , personalID(id) {
+Client::Client(std::string fName, std::string lName, int id, Address* adr) : firstName(fName) , lastName(lName) , personalID(id), address(adr){
     //std::cout<<this<<": Uzylem konstruktora parametrowego!"<<std::endl;
     //std::cout<<getClientInfo()<<std::endl;
 }
 
 Client::~Client(){
+    // delete address;
     //std::cout<<"Zniszczono instancje klasy client! adres: "<<this<<std::endl;
 }
