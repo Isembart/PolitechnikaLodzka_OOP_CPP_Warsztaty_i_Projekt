@@ -23,10 +23,11 @@ public:
     const Vehicle* getVehicle();
     const boost::posix_time::ptime getBeginTime() const;
     const boost::posix_time::ptime getEndTime() const;
-
     std::string getRentInfo();
 
     void endRent(boost::posix_time::ptime _endTime);
+
+    int getRentDays();
 };
 
 #endif

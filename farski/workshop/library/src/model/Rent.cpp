@@ -71,3 +71,31 @@ void Rent::endRent(boost::posix_time::ptime _endTime)
         }
     }
 }
+
+int Rent::getRentDays()
+{
+    boost::posix_time::ptime now = boost::posix_time::second_clock::local_time();
+    // jeżeli wypożyczenie nie jest jeszcze zakończone, wartość wynosi 0
+    if(endTime==boost::posix_time::not_a_date_time) {
+        return 0;
+    }
+    
+    //wypozyczenie zakonczone
+    if(now > endTime) {
+
+        // jeżeli wypożyczenie jest zakończone w momencie rozpoczęcia z dokładnością do minuty, jest uznawane za anulowane i wartość także wynosi 0
+        if((endTime-beginTime).total_seconds() <= 60) {
+            return 0;
+        }
+
+        return std::ceil( (double)(endTime - beginTime).hours()/24);
+
+    }
+    
+    // w pozostałych przypadkach każdy rozpoczęty 24-godzinny okres licząc od momentu rozpoczęcia wypożyczenia 
+    // (z zaokrągleniem w dół do pełnej godziny) liczony jest jako kolejna doba wypożyczenia. 
+    // A zatem jeśli różnica między czasem rozpoczęcia i zakończenia wynosi od 0 do 23 godzin liczone jest to jako jedna doba; od 24 do 47 godzin - 2 doby, itd.
+
+
+    return 0;
+}
