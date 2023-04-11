@@ -32,6 +32,11 @@ const Address* Client::getAddress() const {
     return address;
 }
 
+std::vector<Rent *> Client::getCurrentRents()
+{
+    return currentRents;
+}
+
 std::string Client::getClientInfo()
 {   
     return firstName + " "+ lastName + " " + std::to_string(personalID) + ", " + address->getAdressInfo();

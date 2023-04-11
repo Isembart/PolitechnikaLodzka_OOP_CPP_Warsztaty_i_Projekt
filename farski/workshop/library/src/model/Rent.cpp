@@ -7,10 +7,8 @@ Rent::Rent(const unsigned int &_id, Client *_client, Vehicle *_vehicle)
     id = _id;
     client = _client;
     vehicle = _vehicle;
-}
 
-Rent::~Rent()
-{
+    client->getCurrentRents().push_back(this); //Dodajemy nowo utworzony obiekt Rent do listy wypożyczeń odpowiedniego klienta
 }
 
 const int Rent::getId() const
