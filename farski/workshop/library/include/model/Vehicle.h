@@ -10,6 +10,7 @@ private:
     std::string plateNumber;
     //cena za 1 dobę wypożyczenia
     unsigned int basePrice;
+    bool rented = false;
 public:
     Vehicle(/* args */);
     Vehicle(const std::string &_plateNumber,const int &_basePrice);
@@ -20,6 +21,8 @@ public:
     void setPlateNumber(const std::string &_plateNumber);
     void setBasePrice(const int &_basePrice);
 
+    const bool isRented() const;
+    void setRented(const bool &_rented);
 };
 
 #endif

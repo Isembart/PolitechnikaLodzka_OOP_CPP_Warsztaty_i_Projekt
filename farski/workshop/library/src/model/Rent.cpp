@@ -1,6 +1,4 @@
 #include "Rent.h"
-#include "Client.h"
-#include "Vehicle.h"
 
 Rent::Rent(const unsigned int &_id, Client *_client, Vehicle *_vehicle)
 {
@@ -9,6 +7,11 @@ Rent::Rent(const unsigned int &_id, Client *_client, Vehicle *_vehicle)
     vehicle = _vehicle;
 
     client->getCurrentRents().push_back(this); //Dodajemy nowo utworzony obiekt Rent do listy wypożyczeń odpowiedniego klienta
+    vehicle->setRented(true);
+}
+
+Rent::~Rent()
+{
 }
 
 const int Rent::getId() const

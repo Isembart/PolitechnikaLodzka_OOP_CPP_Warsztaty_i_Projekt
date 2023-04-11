@@ -4,9 +4,9 @@ project(Library)
 set(SOURCE_FILES
     src/math_helpers.cpp
     src/model/Address.cpp
+    src/model/Rent.cpp
     src/model/Client.cpp
     src/model/Vehicle.cpp
-    src/model/Rent.cpp
 )
 #Utwórz bibliotekę typu STATIC, SHARED albo MODULE ze wskazanych źródeł
 add_library(Library ${SOURCE_FILES})

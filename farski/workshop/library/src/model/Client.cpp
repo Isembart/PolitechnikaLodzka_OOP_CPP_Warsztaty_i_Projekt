@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Client.h"
 #include <string>
-
+#include "Rent.h"
 
 
 void Client::setFirstName(const std::string &fName)
@@ -39,7 +39,25 @@ std::vector<Rent *> Client::getCurrentRents()
 
 std::string Client::getClientInfo()
 {   
+    // std::string rentInfo;
+    // for (int i = 0; i < currentRents.size(); i++)
+    // {
+    //    rentInfo+=currentRents.at(i)->getRentInfo() + " "; 
+    // }
+    
+    // return firstName + " "+ lastName + " " + std::to_string(personalID) + ", " + address->getAdressInfo() + "\n" + "Wypozyczenia: " + rentInfo;
     return firstName + " "+ lastName + " " + std::to_string(personalID) + ", " + address->getAdressInfo();
+}
+
+std::string Client::getFullClientInfo()
+{   
+    std::string rentInfo;
+    for (int i = 0; i < currentRents.size(); i++)
+    {
+       rentInfo+=currentRents.at(i)->getRentInfo() + " "; 
+    }
+    
+    return firstName + " "+ lastName + " " + std::to_string(personalID) + ", " + address->getAdressInfo() + "\n" + "Wypozyczenia: " + rentInfo;
 }
 
 Client::Client(const std::string &fName, const std::string &lName, const int &id, Address* adr) : firstName(fName) , lastName(lName) , personalID(id), address(adr){

@@ -4,7 +4,8 @@
 #include "Address.h"
 #include <vector>
 
-class Rent{}; //deklarujemy klase rent aby vector currentRents działał
+
+class Rent; //deklarujemy klase rent aby vector currentRents działał
 
 class Client {
 private:
@@ -23,6 +24,7 @@ public:
     void setLastName(const std::string &_lastName);
     void setAddress(Address *_address);
     std::string getClientInfo();
+    std::string getFullClientInfo();
 };
 
 #endif
