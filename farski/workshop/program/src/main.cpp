@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
     // cout<< client1->getClientInfo() << endl << client2->getClientInfo()<<endl;
     Vehicle* toyotaCorolla = new Vehicle("WZY000",10);
     Client* mariuszPudzianowski = new Client("Mariusz","Pudzianowski",0,new Address("Warszawa","Smolna","22"));
-    Rent* rent1  = new Rent(1,mariuszPudzianowski,toyotaCorolla);
+    Rent* rent1  = new Rent(1,mariuszPudzianowski,toyotaCorolla, boost::posix_time::second_clock::local_time());
 
     cout << rent1->getRentInfo() << endl;
 
