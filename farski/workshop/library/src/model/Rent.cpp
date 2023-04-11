@@ -70,6 +70,8 @@ void Rent::endRent(boost::posix_time::ptime _endTime)
             endTime = boost::posix_time::second_clock::local_time(); //Jeśli wskazana data zakończenia wypożyczenia jest nieprawidłowa to zostanie użyta data wywołania zakończenia (jeśli nie jest wcześniejsza niż data rozpoczęcia)
         }
     }
+    rentCost = vehicle->getBasePrice() * this->getRentDays();
+    vehicle->setRented(false); //oddajemy pojazd 
 }
 
 int Rent::getRentDays()
@@ -88,7 +90,7 @@ int Rent::getRentDays()
             return 0;
         }
 
-        return std::ceil( (double)(endTime - beginTime).hours()/24);
+        return std::ceil( (double)((endTime - beginTime).hours() + 1)/24);
 
     }
     
@@ -98,4 +100,9 @@ int Rent::getRentDays()
 
 
     return 0;
+}
+
+const unsigned int Rent::getRentCost() const
+{
+    return rentCost;
 }

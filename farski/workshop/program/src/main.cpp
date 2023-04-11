@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
     Rent* rent1  = new Rent(1,mariuszPudzianowski,toyotaCorolla, boost::posix_time::ptime(boost::gregorian::date(2023,4,9)));
 
     cout << rent1->getRentInfo() << endl;
-    rent1->endRent(boost::posix_time::ptime(boost::gregorian::date(2023,4,9),boost::posix_time::hours(1)));
+    rent1->endRent(boost::posix_time::ptime(boost::gregorian::date(2023,4,9),boost::posix_time::minutes(2)));
 
     cout << rent1->getRentInfo() << endl;
     cout << rent1->getRentDays() << endl;

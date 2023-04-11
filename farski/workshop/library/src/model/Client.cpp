@@ -39,13 +39,6 @@ std::vector<Rent *> Client::getCurrentRents()
 
 std::string Client::getClientInfo()
 {   
-    // std::string rentInfo;
-    // for (int i = 0; i < currentRents.size(); i++)
-    // {
-    //    rentInfo+=currentRents.at(i)->getRentInfo() + " "; 
-    // }
-    
-    // return firstName + " "+ lastName + " " + std::to_string(personalID) + ", " + address->getAdressInfo() + "\n" + "Wypozyczenia: " + rentInfo;
     return firstName + " "+ lastName + " " + std::to_string(personalID) + ", " + address->getAdressInfo();
 }
 
