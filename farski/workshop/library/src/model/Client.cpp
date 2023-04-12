@@ -28,7 +28,7 @@ void Client::setAddress(Address* _address)
     }
 }
 
-const Address* Client::getAddress() const {
+const AddressPtr Client::getAddress() const {
     return address;
 }
 
@@ -53,7 +53,7 @@ std::string Client::getFullClientInfo()
     return firstName + " "+ lastName + " " + std::to_string(personalID) + ", " + address->getAdressInfo() + "\n" + "Wypozyczenia: " + rentInfo;
 }
 
-Client::Client(const std::string &fName, const std::string &lName, const int &id, Address* adr) : firstName(fName) , lastName(lName) , personalID(id), address(adr){
+Client::Client(const std::string &fName, const std::string &lName, const int &id, AddressPtr adr) : firstName(fName) , lastName(lName) , personalID(id), address(adr){
 }
 
 Client::~Client(){
