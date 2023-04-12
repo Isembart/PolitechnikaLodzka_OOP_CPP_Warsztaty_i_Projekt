@@ -1,7 +1,7 @@
 #include <iostream>
-#include "Client.h"
 #include <string>
-#include "Rent.h"
+#include "model/Client.h"
+#include "model/Rent.h"
 
 
 void Client::setFirstName(const std::string &fName)

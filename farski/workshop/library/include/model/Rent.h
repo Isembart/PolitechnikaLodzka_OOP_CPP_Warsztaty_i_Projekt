@@ -1,9 +1,9 @@
 #ifndef rentClassHeader
 #define rentClassHeader
-#include "Client.h"
-#include "Vehicle.h"
 #include <string>
 #include <boost/date_time.hpp>
+#include "model/Client.h"
+#include "model/Vehicle.h"
 
 class Rent
 {

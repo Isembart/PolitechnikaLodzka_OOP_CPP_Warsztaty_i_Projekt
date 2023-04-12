@@ -1,8 +1,8 @@
 #include <iostream>
 #include "math_helpers.h"
-#include "Client.h"
-#include "Vehicle.h"
-#include "Rent.h"
+#include "model/Client.h"
+#include "model/Vehicle.h"
+#include "model/Rent.h"
 
 using namespace std;
 

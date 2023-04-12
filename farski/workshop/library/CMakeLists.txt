@@ -12,4 +12,4 @@ set(SOURCE_FILES
 add_library(Library ${SOURCE_FILES})
 
 
-target_include_directories(Library PUBLIC include include/model)
+target_include_directories(Library PUBLIC include include)

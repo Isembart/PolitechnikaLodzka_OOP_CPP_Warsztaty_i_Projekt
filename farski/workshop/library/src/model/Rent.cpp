@@ -1,4 +1,4 @@
-#include "Rent.h"
+#include "model/Rent.h"
 Rent::Rent(const unsigned int &_id, Client *_client, Vehicle *_vehicle, const boost::posix_time::ptime &_beginTime)
 {
     id = _id;
