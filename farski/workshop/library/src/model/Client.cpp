@@ -1,8 +1,22 @@
 #include <iostream>
-#include "Client.h"
 #include <string>
-#include "Rent.h"
+#include "model/Client.h"
+#include "model/Rent.h"
 
+std::string Client::getFirstName()
+{
+    return firstName;
+}
+
+std::string Client::getLastName()
+{
+    return lastName;
+}
+
+int Client::getPersonalID()
+{
+    return personalID;
+}
 
 void Client::setFirstName(const std::string &fName)
 {

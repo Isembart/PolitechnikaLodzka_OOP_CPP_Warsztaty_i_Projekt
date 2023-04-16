@@ -1,5 +1,5 @@
-#ifndef addressClass
-#define adressClass
+#ifndef addressHeader
+#define addressHeader
 
 #include <string>
 
@@ -9,7 +9,7 @@ private:
     std::string city;
     std::string street;
     std::string number;
-    
+
 public:
     Address();
     Address(const std::string &_city, const std::string &_street, const std::string &_number);
