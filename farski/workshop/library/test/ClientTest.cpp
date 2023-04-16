@@ -2,41 +2,60 @@
 #include "model/Client.h"
 #include "model/Address.h"
 
-BOOST_AUTO_TEST_SUITE(TestSuiteClient)
+struct TestSuiteClientFixture {
+ const std::string testFirstName = "Mariusz";
+ const std::string testLastName = "Pudzianowski";
+ const int testPersonalID = 151413;
+ Address *testaddress1;
+ Address *testaddress2;
+
+ TestSuiteClientFixture() {
+ testaddress1 = new Address("Warszawa", "Smolna", "22");
+ testaddress2 = new Address("Kłodawa", "test", "50");
+ }
+
+ ~TestSuiteClientFixture() {
+ delete testaddress1;
+ delete testaddress2;
+ }
+
+};
+
+BOOST_FIXTURE_TEST_SUITE(TestSuiteClient, TestSuiteClientFixture)
+//BOOST_AUTO_TEST_SUITE(TestSuiteClient)
 
     // BOOST_AUTO_TEST_CASE(AssertionsTests) {
     //     BOOST_TEST(1.0/3.0==0.333,boost::test_tools::tolerance(0.002));
     //     BOOST_TEST(true);
     // }
 
-    Address* address1 = new Address("Warszwa","Smolna","22");
-    Client* client1 = new Client((std::string)"Mariusz",(std::string)"Pudzianowski",151413, address1);
     BOOST_AUTO_TEST_CASE(GettersTests) {
+        Client client1(testFirstName,testLastName,testPersonalID,testaddress1);
         //Testy getterów | _REQUIRE daltego że jeśli gettery nie działają to testy setterów korzystające z nich i tak nie będą wiarygodne
-        BOOST_TEST_REQUIRE(client1->getFirstName() == "Mariusz");
-        BOOST_TEST_REQUIRE(client1->getLastName() == "Pudzianowski");
-        BOOST_TEST_REQUIRE(client1->getPersonalID() == 151413);
-        BOOST_TEST_REQUIRE(client1->getAddress() == address1);
+        BOOST_TEST_REQUIRE(client1.getFirstName() == testFirstName);
+        BOOST_TEST_REQUIRE(client1.getLastName() == testLastName);
+        BOOST_TEST_REQUIRE(client1.getPersonalID() == testPersonalID);
+        BOOST_TEST_REQUIRE(client1.getAddress() == testaddress1);
     }
 
     BOOST_AUTO_TEST_CASE(SettersTests) {
+        Client client1(testFirstName,testLastName,testPersonalID,testaddress1);
         //Testy setFirstName
-        client1->setFirstName("Jonasz");
-        BOOST_TEST(client1->getFirstName()=="Jonasz");
-        client1->setFirstName("");
-        BOOST_TEST(client1->getFirstName()=="Jonasz");
+        client1.setFirstName("Jonasz");
+        BOOST_TEST(client1.getFirstName()=="Jonasz");
+        client1.setFirstName("");
+        BOOST_TEST(client1.getFirstName()=="Jonasz");
 
         //Testy setLastName
-        client1->setLastName("josephson");
-        BOOST_TEST(client1->getLastName()=="josephson");
-        client1->setLastName("");
-        BOOST_TEST(client1->getLastName()=="josephson");
+        client1.setLastName("josephson");
+        BOOST_TEST(client1.getLastName()=="josephson");
+        client1.setLastName("");
+        BOOST_TEST(client1.getLastName()=="josephson");
 
-        client1->setAddress(nullptr);
-        BOOST_TEST_REQUIRE(client1->getAddress() == address1);
-        Address* address2 = new Address("Kłodawa","test","50");
-        client1->setAddress(address2);
-        BOOST_TEST_REQUIRE(client1->getAddress() == address2);
+        client1.setAddress(nullptr);
+        BOOST_TEST_REQUIRE(client1.getAddress() == testaddress1);
+        client1.setAddress(testaddress2);
+        BOOST_TEST_REQUIRE(client1.getAddress() == testaddress2);
     }
 
 
