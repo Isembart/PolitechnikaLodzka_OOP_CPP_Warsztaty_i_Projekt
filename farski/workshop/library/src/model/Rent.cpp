@@ -33,7 +33,7 @@ const Client *Rent::getClient()
     return client;
 }
 
-const Vehicle *Rent::getVehicle()
+Vehicle *Rent::getVehicle() const
 {
     return vehicle;
 }
@@ -58,15 +58,22 @@ void Rent::endRent(boost::posix_time::ptime _endTime)
     if(endTime!=boost::posix_time::not_a_date_time) return; //metoda nie może dopuścić do nadpisania już ustalonego czasu zakończenia (nowa wartość może być ustalona tylko wtedy, gdy dotychczasowa wartość to not_a_date_time).
     
     boost::posix_time::ptime now = boost::posix_time::second_clock::local_time();;
-    if(_endTime != boost::posix_time::not_a_date_time) {
-        endTime = _endTime;
+    if(_endTime != boost::posix_time::not_a_date_time) { //wlasciwy argument
+        if(_endTime <= beginTime) { //Argument jest wczesniej niż rozpoczecie 
+            endTime = beginTime;
+        }
+        else //argument pozniej niz rozpoczecie -> POPRAWNY
+        {
+            endTime = _endTime;
+        }
     }
-    else
+    else //niewlasciwy argument
     {
+        //Jezeli wypozyczenie sie jeszcze nie rozpoczelo
         if(beginTime > now) {
             endTime = beginTime;
         }
-        else
+        else //wypozyczeni juz sie rozpoczelo
         {
             endTime = boost::posix_time::second_clock::local_time(); //Jeśli wskazana data zakończenia wypożyczenia jest nieprawidłowa to zostanie użyta data wywołania zakończenia (jeśli nie jest wcześniejsza niż data rozpoczęcia)
         }
@@ -91,7 +98,7 @@ int Rent::getRentDays()
             return 0;
         }
 
-        return std::ceil( (double)((endTime - beginTime).hours() + 1)/24);
+        return std::floor( (double)((endTime - beginTime).hours())/24) +1;
 
     }
     

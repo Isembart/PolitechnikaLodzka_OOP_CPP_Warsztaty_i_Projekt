@@ -20,7 +20,7 @@ public:
 
     const int getId() const;
     const Client* getClient();
-    const Vehicle* getVehicle();
+    Vehicle* getVehicle() const;
     const boost::posix_time::ptime getBeginTime() const;
     const boost::posix_time::ptime getEndTime() const;
     std::string getRentInfo();
