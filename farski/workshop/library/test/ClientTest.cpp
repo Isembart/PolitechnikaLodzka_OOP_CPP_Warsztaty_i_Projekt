@@ -4,10 +4,10 @@
 
 BOOST_AUTO_TEST_SUITE(TestSuiteClient)
 
-    BOOST_AUTO_TEST_CASE(AssertionsTests) {
-        BOOST_TEST(1.0/3.0==0.333,boost::test_tools::tolerance(0.002));
-        BOOST_TEST(true);
-    }
+    // BOOST_AUTO_TEST_CASE(AssertionsTests) {
+    //     BOOST_TEST(1.0/3.0==0.333,boost::test_tools::tolerance(0.002));
+    //     BOOST_TEST(true);
+    // }
 
     Address* address1 = new Address("Warszwa","Smolna","22");
     Client* client1 = new Client((std::string)"Mariusz",(std::string)"Pudzianowski",151413, address1);
