@@ -1,6 +1,6 @@
 #include <iostream>
+#include "model/Client.h"
 #include "math_helpers.h"
-#include "Client.h"
 #include <sstream>
 
 using namespace std;

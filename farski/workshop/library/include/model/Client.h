@@ -9,11 +9,14 @@ private:
     const int personalID;
     Client();
 public:
+    std::string getFirstName();
+    std::string getLastName();
+    int getPersonalID();
     void setFirstName(std::string);
     void setLastName(std::string);
     void setPersonalID(int);
     std::string getClientInfo();
-    Client(std::string,std::string ,int);
+    Client(std::string fName,std::string lName,int id);
     ~Client();
 };
 
