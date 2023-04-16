@@ -1,9 +1,21 @@
-#include "model/Client.h"
 #include <iostream>
-#include "Client.h"
+#include "model/Client.h"
 #include <string>
 
+std::string Client::getFirstName()
+{
+    return firstName;
+}
 
+std::string Client::getLastName()
+{
+    return lastName;
+}
+
+int Client::getPersonalID()
+{
+    return personalID;
+}
 
 void Client::setFirstName(std::string fName)
 {
