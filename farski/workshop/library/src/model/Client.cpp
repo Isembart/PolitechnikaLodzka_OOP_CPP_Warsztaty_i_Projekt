@@ -2,18 +2,19 @@
 #include <string>
 #include "model/Client.h"
 #include "model/Rent.h"
+#include "typedefs.h"
 
-std::string Client::getFirstName()
+const std::string Client::getFirstName() const
 {
     return firstName;
 }
 
-std::string Client::getLastName()
+const std::string Client::getLastName() const
 {
     return lastName;
 }
 
-int Client::getPersonalID()
+const int Client::getPersonalID() const
 {
     return personalID;
 }
@@ -42,11 +43,11 @@ void Client::setAddress(Address* _address)
     }
 }
 
-const Address* Client::getAddress() const {
+const AddressPtr Client::getAddress() const {
     return address;
 }
 
-std::vector<Rent *> Client::getCurrentRents()
+std::vector<RentPtr> Client::getCurrentRents()
 {
     return currentRents;
 }
@@ -67,7 +68,7 @@ std::string Client::getFullClientInfo()
     return firstName + " "+ lastName + " " + std::to_string(personalID) + ", " + address->getAdressInfo() + "\n" + "Wypozyczenia: " + rentInfo;
 }
 
-Client::Client(const std::string &fName, const std::string &lName, const int &id, Address* adr) : firstName(fName) , lastName(lName) , personalID(id), address(adr){
+Client::Client(const std::string &fName, const std::string &lName, const int &id, AddressPtr adr) : firstName(fName) , lastName(lName) , personalID(id), address(adr){
 }
 
 Client::~Client(){

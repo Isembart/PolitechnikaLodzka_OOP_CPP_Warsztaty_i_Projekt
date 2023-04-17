@@ -1,6 +1,7 @@
 #include "model/Rent.h"
+#include "typedefs.h"
 
-Rent::Rent(const unsigned int &_id, Client *_client, Vehicle *_vehicle, const boost::posix_time::ptime &_beginTime)
+Rent::Rent(const unsigned int &_id, ClientPtr _client, VehiclePtr _vehicle, const boost::posix_time::ptime &_beginTime)
 {
     id = _id;
     client = _client;
@@ -28,12 +29,12 @@ const int Rent::getId() const
     return id;
 }
 
-const Client *Rent::getClient()
+const ClientPtr Rent::getClient()
 {
     return client;
 }
 
-Vehicle *Rent::getVehicle() const
+const VehiclePtr Rent::getVehicle()
 {
     return vehicle;
 }
