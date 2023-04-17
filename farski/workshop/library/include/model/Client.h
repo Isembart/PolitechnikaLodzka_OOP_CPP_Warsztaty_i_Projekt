@@ -3,7 +3,6 @@
 #include <string>
 #include <vector>
 #include "model/Address.h"
-#include "typedefs.h"
 
 
 class Rent; //deklarujemy klase rent aby vector currentRents działał
@@ -13,21 +12,23 @@ private:
     std::string firstName;
     std::string lastName;
     const int personalID;
-    AddressPtr address;
-    std::vector<RentPtr> currentRents;
+    Address* address;
+    std::vector<Rent*> currentRents;
 public:
-    Client();
-    Client(const std::string &fName, const std::string &lName, const int &id, AddressPtr adr);
+    Client(const std::string &fName, const std::string &lName, const int &id, Address *adr);
     ~Client();
-    const AddressPtr getAddress() const;
-    std::vector<RentPtr> getCurrentRents();
 
-    const std::string getFirstName() const;
-    const std::string getLastName() const;
-    const int getPersonalID() const;
+    std::string getFirstName();
+    std::string getLastName();
+    int getPersonalID();
+
     void setFirstName(const std::string &_firsName);
     void setLastName(const std::string &_lastName);
-    void setAddress(AddressPtr _address);
+    void setAddress(Address *_address);
+    
+    const Address *getAddress() const;
+    std::vector<Rent*> getCurrentRents();
+   
     std::string getClientInfo();
     std::string getFullClientInfo();
 };
