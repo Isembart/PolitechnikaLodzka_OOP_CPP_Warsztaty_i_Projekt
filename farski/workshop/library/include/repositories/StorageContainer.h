@@ -13,16 +13,16 @@
 class StorageContainer
 {
 private:
-    ClientRepository clientRepo;
-    VehicleRepository vehicleRepo;
-    RentRepository rentRepo;
+    ClientRepositoryPtr clientRepo;
+    VehicleRepositoryPtr vehicleRepo;
+    RentRepositoryPtr rentRepo;
 public:
     StorageContainer(/* args */);
     ~StorageContainer();
 
-    ClientRepository getClientRepo() const;
-    VehicleRepository getVehicleRepo() const;
-    RentRepository getRentRepo() const;
+    ClientRepositoryPtr getClientRepo() ;
+    VehicleRepositoryPtr getVehicleRepo() ;
+    RentRepositoryPtr getRentRepo() ;
 };
 
 #endif

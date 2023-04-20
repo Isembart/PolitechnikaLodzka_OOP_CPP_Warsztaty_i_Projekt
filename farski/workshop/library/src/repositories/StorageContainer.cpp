@@ -1,36 +1,42 @@
 #include "repositories/StorageContainer.h"
+#include "typyedefs.h"
 
 StorageContainer::StorageContainer()
 {
-    Client mariuszPudzianowski("Mariusz","Pudzianowski",0,new Address("Warszawa","Smolna","22"));
-    Client Roman("roman","kostrzewski",123,new Address("grudziądz","armi krajowej","5A")); 
-    clientRepo.add(&mariuszPudzianowski);
-    clientRepo.add(&Roman);
+    clientRepo = new ClientRepository;
+    vehicleRepo = new VehicleRepository;
+    rentRepo = new RentRepository;
+    ClientPtr mariuszPudzianowski = new Client("Mariusz","Pudzianowski",0,new Address("Warszawa","Smolna","22"));
+    ClientPtr Roman = new Client("Roman","Kostrzewski",123,new Address("grudziądz","armi krajowej","5A")); 
+    clientRepo->add(mariuszPudzianowski);
+    clientRepo->add(Roman);
 
-    Vehicle toyotaCorolla("WZY000",10);
-    vehicleRepo.add(&toyotaCorolla);
+    VehiclePtr toyotaCorolla = new Vehicle("WZY000",10);
+    vehicleRepo->add(toyotaCorolla);
 
-    Rent rent1(1,&mariuszPudzianowski,&toyotaCorolla, boost::posix_time::ptime(boost::gregorian::date(2023,4,9)));
+    RentPtr rent1 = new Rent(1,mariuszPudzianowski,toyotaCorolla, boost::posix_time::ptime(boost::gregorian::date(2023,4,9)));
 
-    rentRepo.add(&rent1);
+    rentRepo->add(rent1);
+    //Nigdy nie usuwamy tych danych, wyciek :P. ale w zadaniu jest i tak żeby tak nie robić 
 }
 
 
 StorageContainer::~StorageContainer()
 {
+
 }
 
-ClientRepository StorageContainer::getClientRepo() const
+ClientRepositoryPtr StorageContainer::getClientRepo() 
 {
     return clientRepo;
 }
 
-VehicleRepository StorageContainer::getVehicleRepo() const
+VehicleRepositoryPtr StorageContainer::getVehicleRepo()
 {
     return vehicleRepo;
 }
 
-RentRepository StorageContainer::getRentRepo() const
+RentRepositoryPtr StorageContainer::getRentRepo()
 {
     return rentRepo;
 }

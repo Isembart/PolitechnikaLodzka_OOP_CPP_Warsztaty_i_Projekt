@@ -1,3 +1,4 @@
+#include <algorithm> //std::remove
 #include "repositories/ClientRepository.h"
 #include "model/Client.h"
 ClientRepository::ClientRepository()
@@ -19,11 +20,14 @@ ClientPtr ClientRepository::get(int index)
 
 void ClientRepository::add(ClientPtr client)
 {
+    if(client == nullptr) return;
     repo.push_back(client);
 }
 
 void ClientRepository::remove(ClientPtr client)
+
 {
+    if(client == nullptr) return;
     auto newEnd = std::remove(repo.begin(),repo.end(),client);
     repo.erase(newEnd,repo.end());
 }

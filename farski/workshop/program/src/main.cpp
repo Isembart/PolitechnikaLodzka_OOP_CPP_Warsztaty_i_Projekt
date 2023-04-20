@@ -40,5 +40,6 @@ int main(int argc, char* argv[]) {
     
     cout << crepo.report();
     cout << crepo.size() << endl;
+    cout << crepo.get(0)->getClientInfo();
     return 0;
 }

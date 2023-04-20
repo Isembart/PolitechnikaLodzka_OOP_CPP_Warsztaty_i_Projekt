@@ -1,3 +1,4 @@
+#include <algorithm> //std::remove
 #include "repositories/VehicleRepository.h"
 #include "model/Vehicle.h"
 VehicleRepository::VehicleRepository()
@@ -19,11 +20,13 @@ VehiclePtr VehicleRepository::get(int index)
 
 void VehicleRepository::add(VehiclePtr client)
 {
+    if(client == nullptr) return;
     repo.push_back(client);
 }
 
 void VehicleRepository::remove(VehiclePtr client)
 {
+    if(client == nullptr) return;
     auto newEnd = std::remove(repo.begin(),repo.end(),client);
     repo.erase(newEnd,repo.end());
 }

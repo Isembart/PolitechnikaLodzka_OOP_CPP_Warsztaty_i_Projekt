@@ -1,3 +1,4 @@
+#include <algorithm> //std::remove
 #include "repositories/RentRepository.h"
 #include "model/Rent.h"
 RentRepository::RentRepository()
@@ -19,11 +20,13 @@ RentPtr RentRepository::get(int index)
 
 void RentRepository::add(RentPtr client)
 {
+    if(client == nullptr) return;
     repo.push_back(client);
 }
 
 void RentRepository::remove(RentPtr client)
 {
+    if(client == nullptr) return;
     auto newEnd = std::remove(repo.begin(),repo.end(),client);
     repo.erase(newEnd,repo.end());
 }
