@@ -3,8 +3,8 @@
 
 #include <vector>
 
-#include "../model/Client.h"
-#include "../typyedefs.h"
+#include "model/Client.h"
+#include "typyedefs.h"
 
 class ClientRepository
 {
@@ -13,15 +13,12 @@ private:
 public:
     ClientRepository(/* args */);
     ~ClientRepository();
+    ClientPtr get(int index);
+    void add(ClientPtr client);
+    void remove(ClientPtr client);
+    std::string report();
+    int size();
 };
-
-ClientRepository::ClientRepository(/* args */)
-{
-}
-
-ClientRepository::~ClientRepository()
-{
-}
  
 
 #endif

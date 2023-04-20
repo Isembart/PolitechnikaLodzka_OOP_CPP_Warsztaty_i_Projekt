@@ -2,6 +2,8 @@
 #include "model/Client.h"
 #include "model/Vehicle.h"
 #include "model/Rent.h"
+#include "repositories/ClientRepository.h"
+#include "typyedefs.h"
 
 using namespace std;
 
@@ -25,5 +27,18 @@ int main(int argc, char* argv[]) {
 
     cout << rent1->getRentInfo() << endl;
     cout << rent1->getRentDays() << endl;
+
+    ClientRepository crepo;
+    cout << crepo.size()<< endl;
+    crepo.add(mariuszPudzianowski);
+    cout << crepo.size() << endl;
+    Client Roman("roman","kostrzewski",123,new Address("grudziądz","armi krajowej","5A"));
+    crepo.add(&Roman);
+    cout << crepo.size() << endl;
+    cout << crepo.report();
+    crepo.remove(mariuszPudzianowski);
+    
+    cout << crepo.report();
+    cout << crepo.size() << endl;
     return 0;
 }
