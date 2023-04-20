@@ -4,6 +4,8 @@
 #include <vector>
 #include "model/Address.h"
 
+#include "typyedefs.h"
+
 
 class Rent; //deklarujemy klase rent aby vector currentRents działał
 
@@ -12,10 +14,10 @@ private:
     std::string firstName;
     std::string lastName;
     const int personalID;
-    Address* address;
-    std::vector<Rent*> currentRents;
+    AddressPtr address;
+    std::vector<RentPtr> currentRents;
 public:
-    Client(const std::string &fName, const std::string &lName, const int &id, Address *adr);
+    Client(const std::string &fName, const std::string &lName, const int &id, AddressPtr adr);
     ~Client();
 
     std::string getFirstName();
@@ -24,10 +26,10 @@ public:
 
     void setFirstName(const std::string &_firsName);
     void setLastName(const std::string &_lastName);
-    void setAddress(Address *_address);
+    void setAddress(AddressPtr _address);
     
-    const Address *getAddress() const;
-    std::vector<Rent*> getCurrentRents();
+    const AddressPtr getAddress() const;
+    std::vector<RentPtr> getCurrentRents();
    
     std::string getClientInfo();
     std::string getFullClientInfo();

@@ -28,12 +28,12 @@ const int Rent::getId() const
     return id;
 }
 
-const Client *Rent::getClient()
+const ClientPtr Rent::getClient()
 {
     return client;
 }
 
-Vehicle *Rent::getVehicle() const
+VehiclePtr Rent::getVehicle() const
 {
     return vehicle;
 }

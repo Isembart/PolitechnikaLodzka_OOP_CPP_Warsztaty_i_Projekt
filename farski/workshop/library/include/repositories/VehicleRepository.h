@@ -1,0 +1,3 @@
+#ifndef VehicleRepositoryHeader
+#define VehicleRepositoryHeader
+#endif

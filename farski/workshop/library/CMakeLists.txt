@@ -7,6 +7,9 @@ set(SOURCE_FILES
     src/model/Rent.cpp
     src/model/Client.cpp
     src/model/Vehicle.cpp
+    src/repositories/ClientRepository.cpp
+    src/repositories/VehicleRepository.cpp
+    src/repositories/RentRepository.cpp
 )
 #Utwórz bibliotekę typu STATIC, SHARED albo MODULE ze wskazanych źródeł
 add_library(Library ${SOURCE_FILES})
@@ -32,7 +35,7 @@ set(SOURCE_TEST_FILES test/master.cpp
 add_executable (LibraryTest ${SOURCE_TEST_FILES})
 
 #dołącz bibliotekę z testowanymi klasami oraz bibliotekę boost.test do programu testów
-target_link_libraries (LibraryTest
+target_link_libraries (LibraryTest PUBLIC
         Library
         ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
         )
