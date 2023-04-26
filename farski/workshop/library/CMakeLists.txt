@@ -7,6 +7,14 @@ set(SOURCE_FILES
     src/model/Rent.cpp
     src/model/Client.cpp
     src/model/Vehicle.cpp
+    src/repositories/ClientRepository.cpp
+    src/repositories/RentRepository.cpp
+    src/repositories/VehicleRepository.cpp
+    src/repositories/StorageContainer.cpp
+    src/model/Vehicles/Bicycle.cpp
+    src/model/Vehicles/MotorVehicle.cpp
+    src/model/Vehicles/Moped.cpp
+    src/model/Vehicles/Car.cpp
 )
 #Utwórz bibliotekę typu STATIC, SHARED albo MODULE ze wskazanych źródeł
 add_library(Library ${SOURCE_FILES})
@@ -27,12 +35,16 @@ set(SOURCE_TEST_FILES test/master.cpp
         test/AddressTest.cpp
         test/VehicleTest.cpp
         test/RentTest.cpp
+        test/ClientRepositoryTest.cpp
+        test/VehicleRepositoryTest.cpp
+        test/RentRepositoryTest.cpp
+        test/VehicleTypesTest.cpp
         ) # tu w przyszłości będą dodawane pliki źródłowe testów
 
 add_executable (LibraryTest ${SOURCE_TEST_FILES})
 
 #dołącz bibliotekę z testowanymi klasami oraz bibliotekę boost.test do programu testów
-target_link_libraries (LibraryTest
+target_link_libraries (LibraryTest PUBLIC
         Library
         ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
         )

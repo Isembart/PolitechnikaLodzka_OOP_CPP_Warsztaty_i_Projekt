@@ -13,7 +13,7 @@ private:
 public:
     Address();
     Address(const std::string &_city, const std::string &_street, const std::string &_number);
-    ~Address();
+    virtual ~Address();
     const std::string getAdressInfo() const; 
     const std::string getCity() const;
     const std::string getStreet() const;

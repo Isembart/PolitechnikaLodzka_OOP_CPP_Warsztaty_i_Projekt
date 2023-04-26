@@ -23,7 +23,7 @@ enable_language(CXX)
 #W specjalnym pliku compile_commands.json można podejrzeć wszystkie operacje kompilatora wraz z parametrami, 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON) 
 set(CMAKE_VERBOSE_MAKEFILE TRUE) 
-set (-Wall -Wpedantic -Wextra)
+set (-Wall -Wpedantic -Wextra -Werror)
 #Uwzględnij podprojekt znajdujący się w podkatalogu program. Musi być w nim pliki CMakeLists.txt
 add_subdirectory(program)
 add_subdirectory(library)
