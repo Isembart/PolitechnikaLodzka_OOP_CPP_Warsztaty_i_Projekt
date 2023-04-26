@@ -18,7 +18,7 @@ private:
     unsigned int rentCost=0;
 public:
     Rent(const unsigned int &_id, ClientPtr _client, VehiclePtr _vehicle, const boost::posix_time::ptime &beginTime);
-    ~Rent();
+    virtual ~Rent();
 
     const int getId() const;
     const ClientPtr getClient();

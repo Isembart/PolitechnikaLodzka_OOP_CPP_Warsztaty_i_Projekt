@@ -1,21 +1,14 @@
 #include <string>
 #include "model/Vehicle.h"
 
-Vehicle::Vehicle()
-{
-
-}
-
 Vehicle::Vehicle(const std::string &_plateNumber, const int &_basePrice)
 {
     plateNumber = _plateNumber;
     basePrice = _basePrice;
 }
 
-Vehicle::~Vehicle()
-{
+Vehicle::~Vehicle(){}
 
-}
 
 std::string Vehicle::getVehicleInfo()
 {
@@ -28,6 +21,11 @@ const std::string Vehicle::getPlateNumber() const
 }
 
 const int Vehicle::getBasePrice() const
+{
+    return basePrice;
+}
+
+const double Vehicle::getActualRentalPrice() const
 {
     return basePrice;
 }

@@ -9,15 +9,19 @@ class Vehicle
 private:
     std::string plateNumber;
     //cena za 1 dobę wypożyczenia
-    unsigned int basePrice;
     bool rented = false;
+protected:
+    unsigned int basePrice;
 public:
-    Vehicle(/* args */);
     Vehicle(const std::string &_plateNumber,const int &_basePrice);
-    ~Vehicle();
-    std::string getVehicleInfo();
+    virtual ~Vehicle()=0;
+    virtual std::string getVehicleInfo();
     const std::string getPlateNumber() const;
+    //Base price of the vehicle
     const int getBasePrice() const;
+
+    //Returns calculated price of the vehicle
+    virtual const double getActualRentalPrice() const;
     void setPlateNumber(const std::string &_plateNumber);
     void setBasePrice(const int &_basePrice);
 

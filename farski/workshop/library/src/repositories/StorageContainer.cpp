@@ -1,4 +1,5 @@
 #include "repositories/StorageContainer.h"
+#include "model/Vehicles/Car.h"
 #include "typyedefs.h"
 
 StorageContainer::StorageContainer()
@@ -11,12 +12,12 @@ StorageContainer::StorageContainer()
     clientRepo->add(mariuszPudzianowski);
     clientRepo->add(Roman);
 
-    VehiclePtr toyotaCorolla = new Vehicle("WZY000",10);
+    VehiclePtr toyotaCorolla = new Car("WZY000",10,1600,Segment(D));
     vehicleRepo->add(toyotaCorolla);
 
-    RentPtr rent1 = new Rent(1,mariuszPudzianowski,toyotaCorolla, boost::posix_time::ptime(boost::gregorian::date(2023,4,9)));
+    // RentPtr rent1 = new Rent(1,mariuszPudzianowski,toyotaCorolla, boost::posix_time::ptime(boost::gregorian::date(2023,4,9)));
 
-    rentRepo->add(rent1);
+    // rentRepo->add(rent1);
     //Nigdy nie usuwamy tych danych, wyciek :P. ale w zadaniu jest i tak żeby tak nie robić 
 }
 

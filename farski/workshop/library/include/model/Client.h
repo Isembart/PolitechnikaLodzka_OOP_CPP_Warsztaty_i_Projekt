@@ -18,7 +18,7 @@ private:
     std::vector<RentPtr> currentRents;
 public:
     Client(const std::string &fName, const std::string &lName, const int &id, AddressPtr adr);
-    ~Client();
+    virtual ~Client();
 
     std::string getFirstName();
     std::string getLastName();

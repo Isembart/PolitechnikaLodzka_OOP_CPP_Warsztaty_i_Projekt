@@ -1,6 +1,7 @@
 #include <boost/test/unit_test.hpp>
 #include <boost/date_time.hpp>
 #include "model/Rent.h"
+#include "model/Vehicles/Car.h"
 
 namespace pt = boost::posix_time;
 namespace gr = boost::gregorian;
@@ -15,7 +16,7 @@ struct TestSuiteRentFixture {
 
  TestSuiteRentFixture() {
     testClient = new Client("Jonasz","Pudzianowski",151413,new Address("warszawa","smolna","22"));
-    testVehicle = new Vehicle("WZY1514",20);
+    testVehicle = new Car("WZY1514",20,1600,Segment(D));
  }
 
  ~TestSuiteRentFixture() {
