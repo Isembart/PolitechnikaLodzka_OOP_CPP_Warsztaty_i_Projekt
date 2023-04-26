@@ -60,4 +60,5 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteClientRepo,TestSuiteClientRepoFixture)
         std::string info = container.getClientRepo()->get(0)->getClientInfo() + "\n" + container.getClientRepo()->get(1)->getClientInfo() + "\n";
         BOOST_TEST(container.getClientRepo()->report() == info);
     }
+
 BOOST_AUTO_TEST_SUITE_END()

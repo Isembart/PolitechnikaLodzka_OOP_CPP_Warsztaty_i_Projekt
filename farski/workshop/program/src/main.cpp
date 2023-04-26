@@ -7,6 +7,16 @@
 
 using namespace std;
 
+
+bool isMariusz(ClientPtr ptr){
+    if(ptr->getFirstName() == "Mariusz") {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 int main(int argc, char* argv[]) {
 
     // Address* smolna22 = new Address();
@@ -30,16 +40,18 @@ int main(int argc, char* argv[]) {
 
     ClientRepository crepo;
     cout << crepo.size()<< endl;
-    crepo.add(mariuszPudzianowski);
     cout << crepo.size() << endl;
     Client Roman("roman","kostrzewski",123,new Address("grudziądz","armi krajowej","5A"));
     crepo.add(&Roman);
+    crepo.add(mariuszPudzianowski);
     cout << crepo.size() << endl;
     cout << crepo.report();
-    crepo.remove(mariuszPudzianowski);
+    // crepo.remove(mariuszPudzianowski);
     
     cout << crepo.report();
     cout << crepo.size() << endl;
     cout << crepo.get(0)->getClientInfo();
+
+    cout << endl <<crepo.findBy(isMariusz).at(0)->getClientInfo()<<endl;
     return 0;
 }

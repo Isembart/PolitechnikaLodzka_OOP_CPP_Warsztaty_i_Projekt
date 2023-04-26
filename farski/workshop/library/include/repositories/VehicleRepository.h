@@ -13,11 +13,14 @@ private:
 public:
     VehicleRepository(/* args */);
     ~VehicleRepository();
-    VehiclePtr get(int index);
+    VehiclePtr get(int index)const;
     void add(VehiclePtr client);
     void remove(VehiclePtr client);
     std::string report();
     int size();
+
+    std::vector<VehiclePtr> findBy(VehiclePredicate) const;
+    std::vector<VehiclePtr> findAll() const;
 };
  
 

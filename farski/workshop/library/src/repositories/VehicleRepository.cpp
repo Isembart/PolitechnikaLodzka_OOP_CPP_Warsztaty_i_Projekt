@@ -9,7 +9,7 @@ VehicleRepository::~VehicleRepository()
 {
 }
 
-VehiclePtr VehicleRepository::get(int index)
+VehiclePtr VehicleRepository::get(int index) const
 {
     if(index >= repo.size() || index < 0) {
         return nullptr;
@@ -44,4 +44,26 @@ std::string VehicleRepository::report()
 int VehicleRepository::size()
 {
     return repo.size();
+}
+
+std::vector<VehiclePtr> VehicleRepository::findBy(VehiclePredicate predicate) const
+{
+    std::vector<VehiclePtr> found;
+    for (unsigned int i = 0; i < repo.size(); i++)
+    {
+        VehiclePtr client = get(i);
+        if(client != nullptr && predicate(client)) {
+            found.push_back(client);
+        }
+    } 
+    return found;
+}
+
+bool alwaysTrue(VehiclePtr ptr) {
+    return true;
+}
+
+std::vector<VehiclePtr> VehicleRepository::findAll() const
+{
+    return findBy(alwaysTrue);
 }

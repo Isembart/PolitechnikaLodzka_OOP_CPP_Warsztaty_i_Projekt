@@ -13,11 +13,14 @@ private:
 public:
     RentRepository(/* args */);
     ~RentRepository();
-    RentPtr get(int index);
+    RentPtr get(int index) const;
     void add(RentPtr client);
     void remove(RentPtr client);
     std::string report();
     int size();
+
+    std::vector<RentPtr> findBy(RentPredicate) const;
+    std::vector<RentPtr> findAll() const;
 };
  
 

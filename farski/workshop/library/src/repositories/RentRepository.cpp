@@ -9,7 +9,7 @@ RentRepository::~RentRepository()
 {
 }
 
-RentPtr RentRepository::get(int index)
+RentPtr RentRepository::get(int index) const
 {
     if(index >= repo.size() || index < 0) {
         return nullptr;
@@ -44,4 +44,26 @@ std::string RentRepository::report()
 int RentRepository::size()
 {
     return repo.size();
+}
+
+std::vector<RentPtr> RentRepository::findBy(RentPredicate predicate) const
+{
+    std::vector<RentPtr> found;
+    for (unsigned int i = 0; i < repo.size(); i++)
+    {
+        RentPtr client = get(i);
+        if(client != nullptr && predicate(client)) {
+            found.push_back(client);
+        }
+    } 
+    return found;
+}
+
+bool alwaysTrue(RentPtr ptr) {
+    return true;
+}
+
+std::vector<RentPtr> RentRepository::findAll() const
+{
+    return findBy(alwaysTrue);
 }
