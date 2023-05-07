@@ -1,4 +1,7 @@
+#ifndef ClientTypeClass
+#define ClientTypeClass
 #include "model/Client.h"
+
 
 class ClientType
 {
@@ -13,3 +16,5 @@ public:
     virtual double applyDiscount(double price);
     virtual std::string getTypeInfo();
 };
+
+#endif

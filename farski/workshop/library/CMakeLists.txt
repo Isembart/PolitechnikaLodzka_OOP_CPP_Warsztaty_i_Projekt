@@ -15,7 +15,7 @@ set(SOURCE_FILES
     src/model/Vehicles/MotorVehicle.cpp
     src/model/Vehicles/Moped.cpp
     src/model/Vehicles/Car.cpp
-    src/model/ClientType.cpp;
+    src/model/ClientType.cpp
     src/model/ClientTypes/Default.cpp
     src/model/ClientTypes/Bronze.cpp
     src/model/ClientTypes/Silver.cpp

@@ -1,6 +1,8 @@
 #include "repositories/StorageContainer.h"
 #include "model/Vehicles/Car.h"
 #include "typyedefs.h"
+#include "model/ClientTypes/Default.h"
+#include <memory>
 
 StorageContainer::StorageContainer()
 {
@@ -8,8 +10,8 @@ StorageContainer::StorageContainer()
     clientRepo = std::make_shared<ClientRepository>();
     vehicleRepo = std::make_shared<VehicleRepository>();
     rentRepo = std::make_shared<RentRepository>();
-    ClientPtr mariuszPudzianowski = std::make_shared<Client>("Mariusz","Pudzianowski",0, std::make_shared<Address>("Warszawa","Smolna","22"));
-    ClientPtr Roman = std::make_shared<Client>("Roman","Kostrzewski",123, std::make_shared<Address>("grudziądz","armi krajowej","5A")); 
+    ClientPtr mariuszPudzianowski = std::make_shared<Client>("Mariusz","Pudzianowski",0, std::make_shared<Address>("Warszawa","Smolna","22"),std::make_shared<Default>());
+    ClientPtr Roman = std::make_shared<Client>("Roman","Kostrzewski",123, std::make_shared<Address>("grudziądz","armi krajowej","5A"),std::make_shared<Default>()); 
     clientRepo->add(mariuszPudzianowski);
     clientRepo->add(Roman);
 

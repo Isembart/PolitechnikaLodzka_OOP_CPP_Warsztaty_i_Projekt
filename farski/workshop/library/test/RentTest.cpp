@@ -2,7 +2,9 @@
 #include <boost/date_time.hpp>
 #include "model/Rent.h"
 #include "model/Vehicles/Car.h"
+#include "model/ClientTypes/Default.h"
 #include "typyedefs.h"
+
 
 namespace pt = boost::posix_time;
 namespace gr = boost::gregorian;
@@ -16,7 +18,7 @@ struct TestSuiteRentFixture {
     pt::ptime testStartTime = pt::ptime (gr::date(2020,10,2),pt::minutes(10));
 
  TestSuiteRentFixture() {
-    testClient = std::make_shared<Client>("Jonasz","Pudzianowski",151413, std::make_shared<Address>("warszawa","smolna","22"));
+    testClient = std::make_shared<Client>("Jonasz","Pudzianowski",151413, std::make_shared<Address>("warszawa","smolna","22"),std::make_shared<Default>());
     testVehicle = std::make_shared<Car>("WZY1514",20,1600,Segment(D));
  }
 

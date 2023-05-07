@@ -3,9 +3,8 @@
 #include "model/Client.h"
 #include "model/Rent.h"
 #include "model/ClientType.h"
-
 #include "typyedefs.h"
-#include "Client.h"
+
 
 std::string Client::getFirstName()
 {

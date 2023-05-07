@@ -1,6 +1,8 @@
 #include <boost/test/unit_test.hpp>
 #include "model/Client.h"
 #include "model/Address.h"
+#include "model/ClientTypes/Default.h"
+#include <memory>
 
 struct TestSuiteClientFixture {
  const std::string testFirstName = "Mariusz";
@@ -28,7 +30,7 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteClient, TestSuiteClientFixture)
     // }
 
     BOOST_AUTO_TEST_CASE(GettersTests) {
-        Client client1(testFirstName,testLastName,testPersonalID,testaddress1);
+        Client client1(testFirstName,testLastName,testPersonalID,testaddress1,std::make_shared<Default>());
         //Testy getterów | _REQUIRE daltego że jeśli gettery nie działają to testy setterów korzystające z nich i tak nie będą wiarygodne
         BOOST_TEST_REQUIRE(client1.getFirstName() == testFirstName);
         BOOST_TEST_REQUIRE(client1.getLastName() == testLastName);
@@ -37,7 +39,7 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteClient, TestSuiteClientFixture)
     }
 
     BOOST_AUTO_TEST_CASE(SettersTests) {
-        Client client1(testFirstName,testLastName,testPersonalID,testaddress1);
+        Client client1(testFirstName,testLastName,testPersonalID,testaddress1,std::make_shared<Default>());
         //Testy setFirstName
         client1.setFirstName("Jonasz");
         BOOST_TEST(client1.getFirstName()=="Jonasz");
