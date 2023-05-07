@@ -1,6 +1,6 @@
 #include "model/Rent.h"
 
-Rent::Rent(const unsigned int &_id, Client *_client, Vehicle *_vehicle, const boost::posix_time::ptime &_beginTime)
+Rent::Rent(const unsigned int &_id, ClientPtr _client, VehiclePtr _vehicle, const boost::posix_time::ptime &_beginTime)
 {
     id = _id;
     client = _client;
@@ -15,8 +15,6 @@ Rent::Rent(const unsigned int &_id, Client *_client, Vehicle *_vehicle, const bo
     }
 
     endTime = boost::posix_time::not_a_date_time; //"Czas zakończenia wypożyczenia jest ustalany w momencie zakończenia, do tego momentu w polu powinna być wartość not_a_date_time."
-    client->getCurrentRents().push_back(this); //Dodajemy nowo utworzony obiekt Rent do listy wypożyczeń odpowiedniego klienta
-    vehicle->setRented(true);
 }
 
 Rent::~Rent()
@@ -79,7 +77,6 @@ void Rent::endRent(boost::posix_time::ptime _endTime)
         }
     }
     rentCost = vehicle->getBasePrice() * this->getRentDays();
-    vehicle->setRented(false); //oddajemy pojazd 
 }
 
 int Rent::getRentDays()

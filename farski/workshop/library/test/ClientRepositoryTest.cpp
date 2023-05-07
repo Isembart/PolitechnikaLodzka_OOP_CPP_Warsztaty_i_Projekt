@@ -29,7 +29,7 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteClientRepo,TestSuiteClientRepoFixture)
     BOOST_AUTO_TEST_CASE(addTestValidArgument) {
         
         Client newTestClient("Teść","Testowy",0,nullptr);
-        container.getClientRepo()->add(&newTestClient);
+        container.getClientRepo()->add(std::make_shared<Client>(newTestClient));
         BOOST_TEST(container.getClientRepo()->get(2)->getFirstName() == "Teść");
     }
 

@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
     ClientPtr client = container.getClientRepo()->findBy(isMariusz).at(0); 
     VehiclePtr vehicle = container.getVehicleRepo()->get(0);
     boost::posix_time::ptime now = boost::posix_time::second_clock::local_time();
-    container.getRentRepo()->add(new Rent(1,client,vehicle,now));
+    container.getRentRepo()->add(std::make_shared<Rent>(1,client,vehicle,now));
 
     cout << endl << "---PLAESE WORK---" << endl;
     

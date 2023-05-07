@@ -43,13 +43,3 @@ void Vehicle::setBasePrice(const int &_basePrice)
         basePrice = _basePrice;
     }
 }
-
-const bool Vehicle::isRented() const
-{
-    return rented;
-}
-
-void Vehicle::setRented(const bool &_rented)
-{
-    rented = _rented;
-}

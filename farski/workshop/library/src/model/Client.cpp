@@ -36,7 +36,7 @@ void Client::setLastName(const std::string &lName)
     }
 }
 
-void Client::setAddress(Address* _address)
+void Client::setAddress(AddressPtr _address)
 {
     if(_address != nullptr)
     {
@@ -48,25 +48,9 @@ const AddressPtr Client::getAddress() const {
     return address;
 }
 
-std::vector<Rent *> Client::getCurrentRents()
-{
-    return currentRents;
-}
-
 std::string Client::getClientInfo()
 {   
     return firstName + " "+ lastName + " " + std::to_string(personalID) + ", " + address->getAdressInfo();
-}
-
-std::string Client::getFullClientInfo()
-{   
-    std::string rentInfo;
-    for (int i = 0; i < currentRents.size(); i++)
-    {
-       rentInfo+=currentRents.at(i)->getRentInfo() + " "; 
-    }
-    
-    return firstName + " "+ lastName + " " + std::to_string(personalID) + ", " + address->getAdressInfo() + "\n" + "Wypozyczenia: " + rentInfo;
 }
 
 Client::Client(const std::string &fName, const std::string &lName, const int &id, AddressPtr adr) : firstName(fName) , lastName(lName) , personalID(id), address(adr){

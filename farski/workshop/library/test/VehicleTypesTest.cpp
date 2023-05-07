@@ -19,21 +19,21 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteVehicle,TestSuiteMotorVehicleFixture)
 
 BOOST_AUTO_TEST_CASE(getAcutalPriceBicycle) {
     VehiclePtr vehicleToTest;
-    vehicleToTest = new Bicycle(testPlateNumber,testBasePrice);
+    vehicleToTest = std::make_shared<Bicycle>(testPlateNumber,testBasePrice);
     BOOST_TEST(vehicleToTest->getActualRentalPrice() == testBasePrice);
 }
 
 BOOST_AUTO_TEST_CASE(getAcutalPriceMotorVehicleLowTier) {
     VehiclePtr vehicleToTest;
 
-    vehicleToTest = new Moped(testPlateNumber,testBasePrice,testEngineDisplacementLow);
+    vehicleToTest = std::make_shared<Moped>(testPlateNumber,testBasePrice,testEngineDisplacementLow);
     BOOST_TEST(vehicleToTest->getActualRentalPrice() == testBasePrice);
 }
 
 BOOST_AUTO_TEST_CASE(getAcutalPriceMotorVehicleMidTier) {
     VehiclePtr vehicleToTest;
 
-    vehicleToTest = new Moped(testPlateNumber,testBasePrice,testEngineDisplacementMid);
+    vehicleToTest = std::make_shared<Moped>(testPlateNumber,testBasePrice,testEngineDisplacementMid);
     double lerpValue = 0.5 + 0.5 * (testEngineDisplacementMid/1000); 
 
     BOOST_TEST(vehicleToTest->getActualRentalPrice() == testBasePrice * lerpValue);
@@ -42,14 +42,14 @@ BOOST_AUTO_TEST_CASE(getAcutalPriceMotorVehicleMidTier) {
 BOOST_AUTO_TEST_CASE(getAcutalPriceMotorVehicleHighTier) {
     VehiclePtr vehicleToTest;
 
-    vehicleToTest = new Moped(testPlateNumber,testBasePrice,testEngineDisplacementHigh);
+    vehicleToTest = std::make_shared<Moped>(testPlateNumber,testBasePrice,testEngineDisplacementHigh);
     BOOST_TEST(vehicleToTest->getActualRentalPrice() == (double)testBasePrice * 1.5);
 }
 
 BOOST_AUTO_TEST_CASE(getAcutalPriceCar) {
     VehiclePtr vehicleToTest;
 
-    vehicleToTest = new Car(testPlateNumber,testBasePrice,testEngineDisplacementHigh,Segment(E));
+    vehicleToTest = std::make_shared<Car>(testPlateNumber,testBasePrice,testEngineDisplacementHigh,Segment(E));
     BOOST_TEST(vehicleToTest->getActualRentalPrice() == (double)testBasePrice * 1.5 * 1.5);
 }
 BOOST_AUTO_TEST_SUITE_END()

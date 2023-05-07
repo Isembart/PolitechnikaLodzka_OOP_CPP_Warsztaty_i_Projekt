@@ -3,7 +3,6 @@
 #include <string>
 #include <vector>
 #include "model/Address.h"
-
 #include "typyedefs.h"
 
 
@@ -15,7 +14,6 @@ private:
     std::string lastName;
     const int personalID;
     AddressPtr address;
-    std::vector<RentPtr> currentRents;
 public:
     Client(const std::string &fName, const std::string &lName, const int &id, AddressPtr adr);
     virtual ~Client();
@@ -29,10 +27,8 @@ public:
     void setAddress(AddressPtr _address);
     
     const AddressPtr getAddress() const;
-    std::vector<RentPtr> getCurrentRents();
    
     std::string getClientInfo();
-    std::string getFullClientInfo();
 };
 
 #endif

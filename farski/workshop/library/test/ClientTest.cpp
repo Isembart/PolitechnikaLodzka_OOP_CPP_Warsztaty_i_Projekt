@@ -6,17 +6,15 @@ struct TestSuiteClientFixture {
  const std::string testFirstName = "Mariusz";
  const std::string testLastName = "Pudzianowski";
  const int testPersonalID = 151413;
- Address *testaddress1;
- Address *testaddress2;
+ AddressPtr testaddress1;
+ AddressPtr testaddress2;
 
  TestSuiteClientFixture() {
- testaddress1 = new Address("Warszawa", "Smolna", "22");
- testaddress2 = new Address("Kłodawa", "test", "50");
+ testaddress1 = std::make_shared<Address>("Warszawa", "Smolna", "22");
+ testaddress2 = std::make_shared<Address>("Kłodawa", "test", "50");
  }
 
  ~TestSuiteClientFixture() {
- delete testaddress1;
- delete testaddress2;
  }
 
 };
