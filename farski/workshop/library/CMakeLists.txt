@@ -15,6 +15,13 @@ set(SOURCE_FILES
     src/model/Vehicles/MotorVehicle.cpp
     src/model/Vehicles/Moped.cpp
     src/model/Vehicles/Car.cpp
+    src/model/ClientType.cpp;
+    src/model/ClientTypes/Default.cpp
+    src/model/ClientTypes/Bronze.cpp
+    src/model/ClientTypes/Silver.cpp
+    src/model/ClientTypes/Gold.cpp
+    src/model/ClientTypes/Platinum.cpp
+    src/model/ClientTypes/Diamond.cpp
 )
 #Utwórz bibliotekę typu STATIC, SHARED albo MODULE ze wskazanych źródeł
 add_library(Library ${SOURCE_FILES})

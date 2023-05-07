@@ -2,8 +2,10 @@
 #include <string>
 #include "model/Client.h"
 #include "model/Rent.h"
+#include "model/ClientType.h"
 
 #include "typyedefs.h"
+#include "Client.h"
 
 std::string Client::getFirstName()
 {
@@ -44,16 +46,33 @@ void Client::setAddress(AddressPtr _address)
     }
 }
 
-const AddressPtr Client::getAddress() const {
+void Client::setClientType( ClientTypePtr _ClientType)
+{
+    clientType = _ClientType;
+}
+
+const int Client::getMaxVehicles() const
+{
+    return clientType->getMaxVehicles();
+}
+
+const double Client::applyDiscout(double price) const
+{
+    return clientType->applyDiscount(price);
+}
+
+const AddressPtr Client::getAddress() const
+{
     return address;
 }
 
 std::string Client::getClientInfo()
 {   
-    return firstName + " "+ lastName + " " + std::to_string(personalID) + ", " + address->getAdressInfo();
+    return firstName + " "+ lastName + " " + std::to_string(personalID) + ", " + address->getAdressInfo() + " Client Type: " + clientType->getTypeInfo();
 }
 
-Client::Client(const std::string &fName, const std::string &lName, const int &id, AddressPtr adr) : firstName(fName) , lastName(lName) , personalID(id), address(adr){
+Client::Client(const std::string &fName, const std::string &lName, const int &id, AddressPtr adr, ClientTypePtr type) : firstName(fName) , lastName(lName) , personalID(id), address(adr){
+    clientType = type;
 }
 
 Client::~Client(){

@@ -4,6 +4,7 @@
 #include <vector>
 #include "model/Address.h"
 #include "typyedefs.h"
+#include "model/ClientType.h"
 
 
 class Rent; //deklarujemy klase rent aby vector currentRents działał
@@ -14,8 +15,9 @@ private:
     std::string lastName;
     const int personalID;
     AddressPtr address;
+    ClientTypePtr clientType;
 public:
-    Client(const std::string &fName, const std::string &lName, const int &id, AddressPtr adr);
+    Client(const std::string &fName, const std::string &lName, const int &id, AddressPtr adr, ClientTypePtr type);
     virtual ~Client();
 
     std::string getFirstName();
@@ -25,8 +27,14 @@ public:
     void setFirstName(const std::string &_firsName);
     void setLastName(const std::string &_lastName);
     void setAddress(AddressPtr _address);
+    void setClientType(ClientTypePtr _ClientType);
+
+    const int getMaxVehicles() const;
+    const double applyDiscout(double price) const;
+
     
     const AddressPtr getAddress() const;
+
    
     std::string getClientInfo();
 };

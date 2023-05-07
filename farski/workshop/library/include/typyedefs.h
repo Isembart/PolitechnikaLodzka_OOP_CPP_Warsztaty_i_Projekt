@@ -11,6 +11,15 @@ class Vehicle;
         class Car;
 class Rent;
 
+class ClientType;
+    class Default;
+    class Bronze;
+    class Silver;
+    class Gold;
+    class Platinum;
+    class Diamond;
+
+
 //Repos
 class ClientRepository;
 class RentRepository;
@@ -34,6 +43,8 @@ typedef shared_ptr<RentRepository> RentRepositoryPtr;
 typedef shared_ptr<VehicleRepository> VehicleRepositoryPtr;
 
 typedef shared_ptr<StorageContainer> StorageContainerPtr;
+
+typedef shared_ptr<ClientType> ClientTypePtr;
 
 //predicates
 typedef bool(*ClientPredicate)(ClientPtr);
