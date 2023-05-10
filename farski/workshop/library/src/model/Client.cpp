@@ -70,8 +70,20 @@ std::string Client::getClientInfo()
     return firstName + " "+ lastName + " " + std::to_string(personalID) + ", " + address->getAdressInfo() + " Client Type: " + clientType->getTypeInfo();
 }
 
-Client::Client(const std::string &fName, const std::string &lName, const int &id, AddressPtr adr, ClientTypePtr type) : firstName(fName) , lastName(lName) , personalID(id), address(adr){
+const bool Client::isArchive() const
+{
+    return archive;
+}
+
+void Client::setArchive(const bool &_archive)
+{
+    archive = _archive;
+}
+
+Client::Client(const std::string &fName, const std::string &lName, const int &id, AddressPtr adr, ClientTypePtr type) : firstName(fName), lastName(lName), personalID(id), address(adr)
+{
     clientType = type;
+    archive = false;
 }
 
 Client::~Client(){

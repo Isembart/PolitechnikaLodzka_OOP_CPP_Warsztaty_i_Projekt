@@ -1,5 +1,6 @@
 // #include "model/Client.h" cannot import Client.h <- Dependency of Rent.h ~Compiler :D
 #include <memory>
+#include <functional>
 
 //model
 class Client;
@@ -47,6 +48,9 @@ typedef shared_ptr<StorageContainer> StorageContainerPtr;
 typedef shared_ptr<ClientType> ClientTypePtr;
 
 //predicates
-typedef bool(*ClientPredicate)(ClientPtr);
-typedef bool(*VehiclePredicate)(VehiclePtr);
-typedef bool(*RentPredicate)(RentPtr);
+typedef std::function<bool(ClientPtr)> ClientPredicate;
+typedef std::function<bool(VehiclePtr)> VehiclePredicate;
+typedef std::function<bool(RentPtr)> RentPredicate;
+// typedef bool(*ClientPredicate)(ClientPtr);
+// typedef bool(*VehiclePredicate)(VehiclePtr);
+// typedef bool(*RentPredicate)(RentPtr);

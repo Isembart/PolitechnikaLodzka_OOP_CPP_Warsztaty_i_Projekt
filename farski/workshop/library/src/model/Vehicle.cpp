@@ -41,5 +41,16 @@ void Vehicle::setBasePrice(const int &_basePrice)
 {
     if(_basePrice >= 0) {
         basePrice = _basePrice;
+
     }
+}
+
+void Vehicle::setArchive(const bool &_archive)
+{
+    archive = _archive;
+}
+
+const bool Vehicle::isArchive() const
+{
+    return archive;
 }

@@ -22,6 +22,8 @@ set(SOURCE_FILES
     src/model/ClientTypes/Gold.cpp
     src/model/ClientTypes/Platinum.cpp
     src/model/ClientTypes/Diamond.cpp
+    src/model/Managers/ClientManager.cpp
+    src/model/Managers/VehicleManager.cpp
 )
 #Utwórz bibliotekę typu STATIC, SHARED albo MODULE ze wskazanych źródeł
 add_library(Library ${SOURCE_FILES})
@@ -46,6 +48,8 @@ set(SOURCE_TEST_FILES test/master.cpp
         test/VehicleRepositoryTest.cpp
         test/RentRepositoryTest.cpp
         test/VehicleTypesTest.cpp
+        test/ClientManagerTest.cpp
+        test/VehicleManagerTest.cpp
         ) # tu w przyszłości będą dodawane pliki źródłowe testów
 
 add_executable (LibraryTest ${SOURCE_TEST_FILES})

@@ -69,3 +69,34 @@ std::vector<ClientPtr> ClientRepository::findAll() const
 {
     return findBy(alwaysTrue);
 }
+
+// bool matchID(ClientPtr ptr, int id)
+// {    
+//     return ptr->getPersonalID() == id;
+// }
+
+ClientPtr ClientRepository::findByPersonalId(int personalID) {
+    //Predykat z parametrem to inny typ więc nie jestem w stanie stworzyc predykatu porownujacego id.
+    // for (unsigned int i = 0; i < repo.size(); i++)
+    // {
+    //     ClientPtr client = get(i);
+    //     if(client != nullptr && client->getPersonalID() == personalID) {
+    //         return client;
+    //     }
+    // } 
+    // return nullptr;
+    //Naprawiłem
+    ClientPredicate matchID = [personalID](ClientPtr ptr)
+    {
+        return ptr->getPersonalID()==personalID;
+    };
+
+    std::vector<ClientPtr> found = findBy(matchID);
+    if(found.size() == 0) {
+        return nullptr;
+    }
+
+    return found.at(0);
+    
+}
+

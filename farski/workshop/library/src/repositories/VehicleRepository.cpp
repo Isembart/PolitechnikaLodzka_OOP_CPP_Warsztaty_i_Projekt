@@ -67,3 +67,18 @@ std::vector<VehiclePtr> VehicleRepository::findAll() const
 {
     return findBy(alwaysTrue);
 }
+
+VehiclePtr VehicleRepository::findByPlateNumber(std::string plateNumber) {
+    VehiclePredicate matchNumber = [plateNumber](VehiclePtr ptr)
+    {
+        return ptr->getPlateNumber() == plateNumber; 
+    };
+
+    std::vector<VehiclePtr> found = findBy(matchNumber);
+    if(found.size() == 0) {
+        return nullptr;
+    }
+
+    return found.at(0);
+    
+}

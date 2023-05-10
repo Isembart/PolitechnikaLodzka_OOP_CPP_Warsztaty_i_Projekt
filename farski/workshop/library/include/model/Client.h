@@ -16,6 +16,7 @@ private:
     const int personalID;
     AddressPtr address;
     ClientTypePtr clientType;
+    bool archive;
 public:
     Client(const std::string &fName, const std::string &lName, const int &id, AddressPtr adr, ClientTypePtr type);
     virtual ~Client();
@@ -33,10 +34,11 @@ public:
     const double applyDiscout(double price) const;
 
     
-    const AddressPtr getAddress() const;
-
-   
+    const AddressPtr getAddress() const; 
     std::string getClientInfo();
+
+    const bool isArchive() const;
+    void setArchive(const bool &archive);
 };
 
 #endif
