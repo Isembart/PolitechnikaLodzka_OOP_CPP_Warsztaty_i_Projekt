@@ -10,7 +10,9 @@ BOOST_AUTO_TEST_SUITE()
 
 BOOST_AUTO_TEST_CASE(RentVehicle_Test)
 {
-    std::shared_ptr<RentManager> rentManager = std::make_shared<RentManager>();
+
+    //Ten sam kod w mainie działa bez zarzutów...
+    RentManager rentManager;
     ClientTypePtr goldType = std::make_shared<Gold>();
     AddressPtr testAddress = std::make_shared<Address>("warszawa","smolna","22a");
     ClientPtr client = std::make_shared<Client>("Mariusz","pudzian",12,testAddress,goldType);
@@ -18,7 +20,7 @@ BOOST_AUTO_TEST_CASE(RentVehicle_Test)
     VehiclePtr vehicle2 = std::make_shared<Bicycle>("WO15",50);
     boost::posix_time::ptime startTime = boost::posix_time::second_clock::local_time();
 
-    RentPtr rent = rentManager->rentVehicle(client, vehicle1, startTime);
+    RentPtr rent = rentManager.rentVehicle(client, vehicle1, startTime);
 
     BOOST_TEST(rent != nullptr);
     BOOST_CHECK(rent->getClient() == client);

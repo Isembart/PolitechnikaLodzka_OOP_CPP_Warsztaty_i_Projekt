@@ -13,6 +13,12 @@
 #include "model/Managers/VehicleManager.h"
 #include "model/Managers/RentManager.h"
 
+#include "model/Vehicles/Bicycle.h"
+#include "model/Vehicles/Car.h"
+
+#include <boost/date_time/gregorian/gregorian.hpp>
+#include <boost/date_time/posix_time/posix_time.hpp>
+
 using namespace std;
 
 
@@ -53,9 +59,25 @@ int main(int argc, char* argv[]) {
     cMan.registerClient("Mariusz","pudzianowski",12,newAdr,newGold);
     
     vMan.registerCar("WZY01",100,2000,Segment(A));
+    vMan.registerBicycle("WZY02",20);
 
-    rMan.rentVehicle(cMan.getClient(12),vMan.getVehicle("WZY01"),boost::posix_time::not_a_date_time);
+    rMan.rentVehicle(cMan.getClient(12),vMan.getVehicle("WZY01"),boost::posix_time::second_clock::local_time() - boost::gregorian::days(2));
+    rMan.rentVehicle(cMan.getClient(12),vMan.getVehicle("WZY02"),boost::posix_time::second_clock::local_time() - boost::gregorian::days(3));
 
+    VehiclePredicate tanie = [](VehiclePtr ptr) {
+        return ptr->getActualRentalPrice() < 100;
+    };
 
+    VehiclePredicate drogie = [](VehiclePtr ptr) {
+        return ptr->getActualRentalPrice() > 100;
+    };
+    cout << "Tanie: "<< vMan.findVehicles(tanie).begin()->get()->getVehicleInfo() <<" Cena: "<< vMan.findVehicles(tanie).begin()->get()->getActualRentalPrice() <<endl ;
+    cout << "Drogie: "<< vMan.findVehicles(drogie).begin()->get()->getVehicleInfo() <<" Cena: "<<vMan.findVehicles(drogie).begin()->get()->getActualRentalPrice() <<endl ;
+
+    cout << cMan.getClient(12)->getClientInfo() << endl;
+    rMan.returnVehicle(vMan.getVehicle("WZY01"));
+    rMan.returnVehicle(vMan.getVehicle("WZY02"));
+
+    cout << cMan.getClient(12)->getClientInfo() << endl;
     return 0;
 }

@@ -72,11 +72,12 @@ double RentManager::checkClientRentBalance(ClientPtr client)
             //Pojazd jest wypozyczony
             return nullptr;
         }
-
-        currentRents.add(std::make_shared<Rent>(id,client,vehicle,startTime));
+        
+        RentPtr result = std::make_shared<Rent>(id,client,vehicle,startTime);
+        currentRents.add(result);
         id++;
 
-        return nullptr;
+        return result;
     }
 
     void RentManager::returnVehicle(VehiclePtr vehicle) {
