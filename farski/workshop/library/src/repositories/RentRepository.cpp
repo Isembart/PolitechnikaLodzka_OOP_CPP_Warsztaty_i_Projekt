@@ -59,11 +59,14 @@ std::vector<RentPtr> RentRepository::findBy(RentPredicate predicate) const
     return found;
 }
 
-bool alwaysTrue(RentPtr ptr) {
-    return true;
-}
+// bool alwaysTrue(RentPtr ptr) {
+//     return true;
+// }
 
 std::vector<RentPtr> RentRepository::findAll() const
 {
-    return findBy(alwaysTrue);
+    RentPredicate all = [](RentPtr ptr) {
+        return true;
+    };
+    return findBy(all);
 }
