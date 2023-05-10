@@ -5,8 +5,6 @@
 
 class Silver : public ClientType
 {
-private:
-    int maxVehicles=3; 
 public:
     Silver();
     ~Silver();

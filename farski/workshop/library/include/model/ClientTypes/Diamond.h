@@ -4,8 +4,6 @@
 
 class Diamond : public ClientType
 {
-private:
-    int maxVehicles=10; 
 public:
     Diamond();
     virtual ~Diamond();

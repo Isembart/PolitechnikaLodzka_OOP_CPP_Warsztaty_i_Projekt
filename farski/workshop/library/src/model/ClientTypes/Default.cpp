@@ -2,6 +2,7 @@
 
 Default::Default()
 {
+    Vehicle:maxVehicles = 1;
 }
 Default::~Default()
 {

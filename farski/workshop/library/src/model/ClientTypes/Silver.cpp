@@ -2,6 +2,7 @@
 
 Silver::Silver()
 {
+    Vehicle:maxVehicles = 3;
 }
 Silver::~Silver()
 {

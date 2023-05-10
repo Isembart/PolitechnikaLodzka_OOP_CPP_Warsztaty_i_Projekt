@@ -5,7 +5,7 @@
 
 class ClientType
 {
-private:
+protected:
     int maxVehicles;
     
 public:

@@ -4,8 +4,6 @@
 
 class Platinum : public ClientType
 {
-private:
-    int maxVehicles=5; 
 public:
     Platinum();
     virtual ~Platinum();

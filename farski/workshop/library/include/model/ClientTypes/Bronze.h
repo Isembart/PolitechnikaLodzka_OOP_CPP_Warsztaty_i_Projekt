@@ -5,8 +5,7 @@
 
 class Bronze : public ClientType
 {
-private:
-    int maxVehicles=2; 
+ 
 public:
     Bronze();
     virtual ~Bronze();

@@ -2,6 +2,7 @@
 
 Gold::Gold()
 {
+    Vehicle:maxVehicles = 4;
 }
 Gold::~Gold()
 {

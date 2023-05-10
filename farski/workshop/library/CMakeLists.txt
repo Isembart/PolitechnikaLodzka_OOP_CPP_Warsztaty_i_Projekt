@@ -51,6 +51,7 @@ set(SOURCE_TEST_FILES test/master.cpp
         test/VehicleTypesTest.cpp
         test/ClientManagerTest.cpp
         test/VehicleManagerTest.cpp
+        test/RentManagerTest.cpp
         ) # tu w przyszłości będą dodawane pliki źródłowe testów
 
 add_executable (LibraryTest ${SOURCE_TEST_FILES})

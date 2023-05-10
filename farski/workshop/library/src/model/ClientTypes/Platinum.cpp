@@ -2,6 +2,7 @@
 
 Platinum::Platinum()
 {
+    Vehicle:maxVehicles = 5;
 }
 Platinum::~Platinum()
 {

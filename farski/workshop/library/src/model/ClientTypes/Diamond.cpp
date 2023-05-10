@@ -2,6 +2,7 @@
 
 Diamond::Diamond()
 {
+    Vehicle:maxVehicles = 10;
 }
 Diamond::~Diamond()
 {

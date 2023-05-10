@@ -5,8 +5,6 @@
 
 class Gold : public ClientType
 {
-private:
-    int maxVehicles=4; 
 public:
     Gold();
     virtual ~Gold();

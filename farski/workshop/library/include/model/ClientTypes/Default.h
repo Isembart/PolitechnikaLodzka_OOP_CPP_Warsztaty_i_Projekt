@@ -5,8 +5,6 @@
 
 class Default : public ClientType
 {
-private:
-    int maxVehicles=1; 
 public:
     Default();
     virtual ~Default();

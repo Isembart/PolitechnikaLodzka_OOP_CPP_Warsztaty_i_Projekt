@@ -2,6 +2,7 @@
 
 Bronze::Bronze()
 {
+    Vehicle:maxVehicles = 2;
 }
 Bronze::~Bronze()
 {
