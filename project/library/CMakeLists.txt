@@ -2,13 +2,13 @@ cmake_minimum_required(VERSION 3.4)
 project(CarRentalLibrary)
 
 set(SOURCE_FILES
-        src/model/Client.cpp
+src/model/Client.cpp
 )
 #Utwórz bibliotekę typu STATIC, SHARED albo MODULE ze wskazanych źródeł
 add_library(CarRentalLibrary ${SOURCE_FILES})
 
+target_include_directories(CarRentalLibrary PUBLIC include)
 
-target_include_directories(CarRentalLibrary PUBLIC PIERDOLONEGOWNO)
 
 enable_testing() # dodane wcześniej w punkcie 2
 find_package (Boost 1.60.0 COMPONENTS "unit_test_framework" REQUIRED)

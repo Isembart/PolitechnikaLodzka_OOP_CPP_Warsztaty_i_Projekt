@@ -1,6 +1,8 @@
 #ifndef ClientType0
 #define ClientType0
 
+#include <string>
+// #include "model/ClientType.hpp"
 #include "model/ClientType.hpp"
 
 class Default : public ClientType
