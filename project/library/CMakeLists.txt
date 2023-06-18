@@ -3,6 +3,10 @@ project(CarRentalLibrary)
 
 set(SOURCE_FILES
 src/model/Client.cpp
+src/model/ClientType.cpp
+src/model/ClientTypes/Default.cpp
+src/model/ClientTypes/Pro.cpp
+src/model/VirtualMachine.cpp
 )
 #Utwórz bibliotekę typu STATIC, SHARED albo MODULE ze wskazanych źródeł
 add_library(CarRentalLibrary ${SOURCE_FILES})

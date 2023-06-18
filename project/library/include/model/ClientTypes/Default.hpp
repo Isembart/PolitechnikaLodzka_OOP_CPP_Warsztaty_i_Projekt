@@ -1,5 +1,5 @@
-#ifndef ClientType0
-#define ClientType0
+#ifndef ctH
+#define ctH
 
 #include <string>
 // #include "model/ClientType.hpp"
@@ -10,7 +10,6 @@ class Default : public ClientType
 public:
     Default();
     virtual ~Default();
-    double applyDiscount(double price)final;
-    std::string getTypeInfo()final;
+    std::string getClientTypeInfo()final;
 };
 #endif

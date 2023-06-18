@@ -8,17 +8,12 @@ ClientType::~ClientType()
 {
 }
 
-const int ClientType::getMaxVehicles() const
+const int ClientType::getMaxComputers() const
 {
-    return maxVehicles;
+    return maxComputers;
 }
 
-double ClientType::applyDiscount(double price)
-{
-    return 0.0;
-}
-
-std::string ClientType::getTypeInfo()
+std::string ClientType::getClientTypeInfo()
 {
     return "Virtual type";
 }

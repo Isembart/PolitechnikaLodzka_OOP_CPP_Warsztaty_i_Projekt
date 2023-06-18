@@ -6,15 +6,14 @@
 class ClientType
 {
 protected:
-    int maxVehicles;
+    int maxComputers;
     
 public:
     ClientType();
     virtual ~ClientType()=0;
 
-    const int getMaxVehicles() const;
-    virtual double applyDiscount(double price);
-    virtual std::string getTypeInfo();
+    const int getMaxComputers() const;
+    virtual std::string getClientTypeInfo();
 };
 
 #endif

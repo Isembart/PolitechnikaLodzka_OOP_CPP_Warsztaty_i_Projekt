@@ -11,8 +11,7 @@ class Pro : public ClientType
 public:
     Pro();
     virtual ~Pro();
-    double applyDiscount(double price)final;
-    std::string getTypeInfo()final;
+    std::string getClientTypeInfo()final;
 };
 
 #endif
