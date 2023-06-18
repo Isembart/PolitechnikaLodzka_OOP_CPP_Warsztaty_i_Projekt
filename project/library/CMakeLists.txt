@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.4)
-project(CarRentalLibrary)
+project(VmRentalLibrary)
 
 set(SOURCE_FILES
 src/model/Client.cpp
@@ -9,9 +9,9 @@ src/model/ClientTypes/Pro.cpp
 src/model/VirtualMachine.cpp
 )
 #Utwórz bibliotekę typu STATIC, SHARED albo MODULE ze wskazanych źródeł
-add_library(CarRentalLibrary ${SOURCE_FILES})
+add_library(VmRentalLibrary ${SOURCE_FILES})
 
-target_include_directories(CarRentalLibrary PUBLIC include)
+target_include_directories(VmRentalLibrary PUBLIC include)
 
 
 enable_testing() # dodane wcześniej w punkcie 2
@@ -22,20 +22,22 @@ include_directories(
         ${Boost_INCLUDE_DIRS}
 )
 
-set(SOURCE_TEST_FILES test/master.cpp 
+set(SOURCE_TEST_FILES 
+        test/master.cpp 
+        test/ClientTest.cpp
         ) # tu w przyszłości będą dodawane pliki źródłowe testów
 
-add_executable (CarRentalLibraryTest ${SOURCE_TEST_FILES})
+add_executable (VmRentalLibraryTest ${SOURCE_TEST_FILES})
 
 #dołącz bibliotekę z testowanymi klasami oraz bibliotekę boost.test do programu testów
-target_link_libraries (CarRentalLibraryTest PUBLIC
-        CarRentalLibrary
+target_link_libraries (VmRentalLibraryTest PUBLIC
+        VmRentalLibrary
         ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
         )
 
 #dodaj test TestBiblioteki1. Instrukcji cmake add_test może być wiele.
 #Dodatkowe parametry wpływają na szczegółowość generowanego raportu. Standardowo znajduje się on w Testing/Temporary.
-add_test(CarRentalLibraryTest1 LibraryTest
+add_test(VmRentalLibraryTest1 VmRentalLibraryTest
         --report_level=detailed
         --log_level=all
         --color_output=yes
