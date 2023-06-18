@@ -19,6 +19,7 @@ public:
     const int getId() const;
     const bool isArchive() const;
     
+    string getVirtualMachineInfo();
     virtual ~VirtualMachine();
 };
 

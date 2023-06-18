@@ -24,6 +24,10 @@ const bool VirtualMachine::isArchive() const
     return archive;
 }
 
+string VirtualMachine::getVirtualMachineInfo()
+{
+    return "ID: "+std::to_string(id) + " RAM: "+std::to_string(ram)+" OS: "+operatingSystem;
+}
 VirtualMachine::~VirtualMachine()
 {
 }
