@@ -1,0 +1,14 @@
+//
+// Created by student on 19.06.23.
+//
+
+#ifndef VIRTALMACHINERENTING_RENTMENAGER_H
+#define VIRTALMACHINERENTING_RENTMENAGER_H
+
+
+class RentMenager {
+
+};
+
+
+#endif //VIRTALMACHINERENTING_RENTMENAGER_H

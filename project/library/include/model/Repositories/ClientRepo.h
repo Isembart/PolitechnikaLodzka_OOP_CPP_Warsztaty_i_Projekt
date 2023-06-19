@@ -1,0 +1,14 @@
+//
+// Created by student on 19.06.23.
+//
+
+#ifndef VIRTALMACHINERENTING_CLIENTREPO_H
+#define VIRTALMACHINERENTING_CLIENTREPO_H
+
+
+class ClientRepo {
+
+};
+
+
+#endif //VIRTALMACHINERENTING_CLIENTREPO_H

@@ -1,0 +1,14 @@
+//
+// Created by student on 19.06.23.
+//
+
+#ifndef VIRTALMACHINERENTING_RENTREPO_H
+#define VIRTALMACHINERENTING_RENTREPO_H
+
+
+class RentRepo {
+
+};
+
+
+#endif //VIRTALMACHINERENTING_RENTREPO_H
