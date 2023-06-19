@@ -1,5 +1,28 @@
-//
-// Created by student on 19.06.23.
-//
+#ifndef ClientRepoHeader
+#define ClientRepoHeader
 
-#include "model/Repositories/ClientRepo.h"
+#include <vector>
+
+#include "model/Client.hpp"
+#include "typedefs.hpp"
+
+class ClientRepo
+{
+private:
+    std::vector<ClientPtr> repo;
+public:
+    ClientRepo(/* args */);
+    ~ClientRepo();
+    ClientPtr get(int index) const;
+    void add(ClientPtr client);
+    void remove(ClientPtr client);
+    std::string report();
+    int size();
+
+    std::vector<ClientPtr> findBy(ClientPredicate) const;
+    std::vector<ClientPtr> findAll() const;
+    ClientPtr findByPersonalId(int personalID);
+};
+
+
+#endif
