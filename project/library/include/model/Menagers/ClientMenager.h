@@ -1,14 +1,23 @@
-//
-// Created by student on 19.06.23.
-//
+#ifndef ClientManagerHeader
+#define ClientManagerHeader
 
-#ifndef VIRTALMACHINERENTING_CLIENTMENAGER_H
-#define VIRTALMACHINERENTING_CLIENTMENAGER_H
+#include "typedefs.hpp"
+#include "model/Repositories/ClientRepo.h"
 
+class ClientManager
+{
+private:
+    ClientRepo repo;
+public:
+    ClientManager();
+    ~ClientManager();
 
-class ClientMenager {
-
+    ClientPtr registerClient(const std::string &firstname, const std::string &lastName, const int &personalID, AddressPtr adr, ClientTypePtr type);
+    void unregisterClient(ClientPtr client);
+    void unregisterClient(int id);
+    ClientPtr getClient(int id);
+    std::vector<ClientPtr> findClients(ClientPredicate predicate);
+    std::vector<ClientPtr> findAllClients();
 };
 
-
-#endif //VIRTALMACHINERENTING_CLIENTMENAGER_H
+#endif

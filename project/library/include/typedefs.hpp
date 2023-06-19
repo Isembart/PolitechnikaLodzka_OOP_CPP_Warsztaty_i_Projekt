@@ -4,8 +4,12 @@
 #include <functional>
 
 class Client;
-class Default;
-class Pro;
+class Address;
+
+class ClientType;
+    class Default;
+    class Pro;
+
 class VirtualMachine;
 class ClientType;
 class Rent;
@@ -29,7 +33,8 @@ class StorageContainer;
 using std::shared_ptr;
 typedef shared_ptr<Client> ClientPtr;
 typedef shared_ptr<Rent> RentPtr;
-typedef shared_ptr<Rent> RentPtr;
+typedef shared_ptr<Address> AddressPtr;
+
 
 typedef shared_ptr<ClientRepository> ClientRepositoryPtr;
 typedef shared_ptr<RentRepository> RentRepositoryPtr;

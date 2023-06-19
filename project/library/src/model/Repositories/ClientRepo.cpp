@@ -11,6 +11,7 @@ class ClientRepo
 private:
     std::vector<ClientPtr> repo;
 public:
+
     ClientRepo(/* args */);
     ~ClientRepo();
     ClientPtr get(int index) const;
