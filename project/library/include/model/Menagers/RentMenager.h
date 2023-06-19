@@ -1,14 +1,32 @@
-//
-// Created by student on 19.06.23.
-//
+#ifndef RentManagerHeader
+#define RentManagerHeader
 
-#ifndef VIRTALMACHINERENTING_RENTMENAGER_H
-#define VIRTALMACHINERENTING_RENTMENAGER_H
+#include "model/Rent.hpp"
+#include "model/Repositories/RentRepo.h"
+#include "typedefs.hpp"
 
 
-class RentMenager {
+class RentManager
+{
+private:
+    RentRepo currentRents;
+    RentRepo archiveRents;
+    int id = 0;
+public:
+    RentManager();
+    ~RentManager();
+
+    std::vector<RentPtr> getAllClientRents(ClientPtr client);
+    RentPtr getVirtualMachineRent(VirtualMachinePtr VirtualMachine);
+    std::vector<RentPtr> findRents(RentPredicate predicate);
+    std::vector<RentPtr> findAllRents();
+    double checkClientRentBalance(ClientPtr client);
+
+    RentPtr rentVirtualMachine(ClientPtr client, VirtualMachinePtr VirtualMachine, boost::posix_time::ptime startTime);
+    void returnVirtualMachine(VirtualMachinePtr VirtualMachine);
+
+    void changeClientType(ClientPtr client);
 
 };
 
-
-#endif //VIRTALMACHINERENTING_RENTMENAGER_H
+#endif

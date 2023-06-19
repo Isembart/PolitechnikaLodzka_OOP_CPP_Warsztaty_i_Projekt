@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "model/Rent.hpp"
+#include "model/Repositories/RentRepo.h"
 #include "typedefs.hpp"
 
 class RentRepo
