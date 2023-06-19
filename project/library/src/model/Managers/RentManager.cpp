@@ -1,6 +1,6 @@
 #include "model/ClientTypes/Pro.hpp"
 #include "model/ClientTypes/Default.hpp"
-#include "model/Menagers/RentMenager.h"
+#include "model/Managers/RentManager.hpp"
 
 RentManager::RentManager()
 {

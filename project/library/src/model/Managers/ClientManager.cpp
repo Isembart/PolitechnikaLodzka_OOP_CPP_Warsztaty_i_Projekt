@@ -1,4 +1,4 @@
-#include "model/Menagers/ClientMenager.h"
+#include "model/Managers/ClientManager.hpp"
 
 ClientManager::ClientManager() {}
 
@@ -6,11 +6,11 @@ ClientManager::~ClientManager() {}
 
 
 
-ClientPtr ClientManager::registerClient(const std::string &firstname, const std::string &lastName, const int &personalID, AddressPtr address, ClientTypePtr type)
+ClientPtr ClientManager::registerClient(const std::string &firstname, const std::string &lastName, const int &personalID, ClientTypePtr type)
 {
     ClientPtr existingClient = getClient(personalID);
     if(existingClient == nullptr) {
-        ClientPtr newClient = std::make_shared<Client>(firstname,lastName,personalID,address,type);
+        ClientPtr newClient = std::make_shared<Client>(firstname,lastName,personalID,type);
         repo.add(newClient);
         return newClient;
     }

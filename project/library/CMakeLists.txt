@@ -2,14 +2,18 @@ cmake_minimum_required(VERSION 3.4)
 project(VmRentalLibrary)
 
 set(SOURCE_FILES
-src/model/Client.cpp
-src/model/ClientType.cpp
-src/model/ClientTypes/Default.cpp
-src/model/ClientTypes/Pro.cpp
-src/model/VirtualMachine.cpp
-src/model/Rent.cpp
-include/model/Rent.hpp
-        src/model/Repositories/ClientRepo.cpp include/model/Menagers/MainFrameMenager.h src/model/Repositories/RentRepo.cpp src/model/Menagers/RentMenager.cpp src/model/Menagers/MainFrameMenager.cpp src/model/Menagers/ClientMenager.cpp include/model/Menagers/RentMenager.h)
+        src/model/Client.cpp
+        src/model/ClientType.cpp
+        src/model/ClientTypes/Default.cpp
+        src/model/ClientTypes/Pro.cpp
+        src/model/VirtualMachine.cpp
+        src/model/Rent.cpp
+        src/model/Repositories/ClientRepo.cpp 
+        src/model/Repositories/RentRepo.cpp 
+        src/model/Managers/RentManager.cpp 
+        src/model/Managers/MainframeManager.cpp 
+        src/model/Managers/ClientManager.cpp 
+        )
 #Utwórz bibliotekę typu STATIC, SHARED albo MODULE ze wskazanych źródeł
 add_library(VmRentalLibrary ${SOURCE_FILES})
 

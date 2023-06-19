@@ -4,7 +4,7 @@
 #include <functional>
 
 class Client;
-class Address;
+// class Address;
 
 class ClientType;
     class Default;
@@ -24,22 +24,22 @@ typedef std::shared_ptr<Mainframe> ManiframePtr;
 
 //Repositories
 
-class ClientRepository;
-class RentRepository;
+class ClientRepo;
+class RentRepo;
 class VehicleRepository;
 
 class StorageContainer;
 
-using std::shared_ptr;
-typedef shared_ptr<Client> ClientPtr;
-typedef shared_ptr<Rent> RentPtr;
-typedef shared_ptr<Address> AddressPtr;
+// using std::shared_ptr;
+// typedef shared_ptr<Client> ClientPtr;
+// typedef shared_ptr<Rent> RentPtr;
+// typedef shared_ptr<Address> AddressPtr;
 
 
-typedef shared_ptr<ClientRepository> ClientRepositoryPtr;
-typedef shared_ptr<RentRepository> RentRepositoryPtr;
+typedef std::shared_ptr<ClientRepo> ClientRepositoryPtr;
+typedef std::shared_ptr<RentRepo> RentRepositoryPtr;
 
-typedef shared_ptr<ClientType> ClientTypePtr;
+// typedef std::shared_ptr<ClientType> ClientTypePtr;
 
 typedef std::function<bool(ClientPtr)> ClientPredicate;
 typedef std::function<bool(RentPtr)> RentPredicate;

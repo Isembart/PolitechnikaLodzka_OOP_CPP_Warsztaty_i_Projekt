@@ -1,7 +1,7 @@
 #include <algorithm> //std::remove
 #include "model/Rent.hpp"
 #include "typedefs.hpp"
-#include "model/Repositories/RentRepo.h"
+#include "model/Repositories/RentRepo.hpp"
 
 RentRepo::RentRepo()
 {

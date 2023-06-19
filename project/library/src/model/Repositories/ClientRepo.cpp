@@ -1,6 +1,6 @@
 #include <algorithm> //std::remove
 #include "model/Client.hpp"
-#include "model/Repositories/ClientRepo.h"
+#include "model/Repositories/ClientRepo.hpp"
 
 ClientRepo::ClientRepo()
 {
