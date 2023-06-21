@@ -23,7 +23,7 @@ VirtualMachinePtr Mainframe::get(int index) const
 void Mainframe::add(VirtualMachinePtr client)
 {
     if(client == nullptr) return;
-    if (client->getRam() > remainingMemory)
+    if (client->getRAM() > remainingMemory)
     {
         /* code */
         //EXCEPTION
@@ -31,7 +31,7 @@ void Mainframe::add(VirtualMachinePtr client)
     }
     
     repo.push_back(client);
-    remainingMemory-=client->getRam();
+    remainingMemory-=client->getRAM();
 }
 
 void Mainframe::remove(VirtualMachinePtr client)
@@ -39,7 +39,7 @@ void Mainframe::remove(VirtualMachinePtr client)
     if(client == nullptr) return;
     auto newEnd = std::remove(repo.begin(),repo.end(),client);
     repo.erase(newEnd,repo.end());
-    remainingMemory+=client->getRam();
+    remainingMemory+=client->getRAM();
 }
 
 std::string Mainframe::report()

@@ -69,3 +69,8 @@ Client::Client(const std::string &fName, const std::string &lName, const int &id
 
 Client::~Client(){
 }
+
+const int Client::getMaxRAM() const {
+    return clientType->getMaxRAM();
+
+}

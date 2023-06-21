@@ -14,6 +14,7 @@ public:
     virtual ~ClientType()=0;
 
     const int getMaxComputers() const;
+    const int getMaxRAM() const;
     virtual std::string getClientTypeInfo();
 };
 

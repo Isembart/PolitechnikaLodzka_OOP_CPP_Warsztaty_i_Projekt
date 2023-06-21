@@ -67,6 +67,11 @@ RentPtr RentManager::rentVirtualMachine(ClientPtr client, VirtualMachinePtr Virt
         return nullptr;
     }
 
+    if(VirtualMachine->getRAM()>client->getMaxRAM()){
+        //wartosc Ramu jest za duza niz pozwala na to typ klienta
+        return nullptr;
+    }
+
     if(getVirtualMachineRent(VirtualMachine) != nullptr) {
         //maszyna jest wypozyczony
         return nullptr;
@@ -89,11 +94,11 @@ void RentManager::returnVirtualMachine(VirtualMachinePtr VirtualMachine) {
     }
 }
 
-//Balans jest roboczo ustawiony na  4 ze względu na ograniczenie gib jeśli chhodzi o maszynę, trzeba jeszcze dodać ograniczenie na ilość maszyn
+//Trzeba ustalić balans od którego jest wersja pro??
 void RentManager::changeClientType(ClientPtr client)
 {
     double sum = checkClientRentBalance(client);
-    if(sum <4) {
+    if(sum <500) {
         client->setClientType(std::make_shared<Default>());
     }
     else {

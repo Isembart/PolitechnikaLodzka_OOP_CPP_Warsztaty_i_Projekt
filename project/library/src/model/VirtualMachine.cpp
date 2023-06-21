@@ -9,7 +9,7 @@ const string VirtualMachine::getOperatingSystem() const
     return operatingSystem;
 }
 
-const int VirtualMachine::getRam() const
+const int VirtualMachine::getRAM() const
 {
     return ram;
 }
