@@ -24,6 +24,7 @@ public:
     VirtualMachinePtr getVirtualMachine(int id);
     std::vector<VirtualMachinePtr> findVirtualMachines(VirtualMachinePredicate predicate);
     std::vector<VirtualMachinePtr> findAllVirtualMachines();
+    std::string info();
 };
 
 #endif

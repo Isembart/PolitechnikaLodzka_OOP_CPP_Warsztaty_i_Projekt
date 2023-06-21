@@ -18,6 +18,8 @@ public:
     ClientPtr getClient(int id);
     std::vector<ClientPtr> findClients(ClientPredicate predicate);
     std::vector<ClientPtr> findAllClients();
+
+    std::string info();
 };
 
 #endif

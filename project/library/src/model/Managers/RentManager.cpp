@@ -59,6 +59,8 @@ double RentManager::checkClientRentBalance(ClientPtr client)
 
 RentPtr RentManager::rentVirtualMachine(ClientPtr client, VirtualMachinePtr VirtualMachine, boost::posix_time::ptime startTime=boost::posix_time::not_a_date_time)
 {
+    //EXCEPTION 
+    
     //klient i maszyna nie są archiwalne -> Client i VirtualMachine Manager nie zwrócą archiwalnej maszyny i klienta
     if(getAllClientRents(client).size() >= client->getMaxComputers()) {
         //Limit maszyn wykorzystany
@@ -96,5 +98,12 @@ void RentManager::changeClientType(ClientPtr client)
     }
     else {
         client->setClientType(std::make_shared<Pro>());
+
+       
     }
 }
+
+ std::string RentManager::info()
+        {
+            return currentRents.report();
+        }

@@ -46,5 +46,12 @@ std::vector<ClientPtr> ClientManager::findAllClients()
     ClientPredicate alwaysTrue = [](ClientPtr ptr){
         return true;
     };
+
+  
     return findClients(alwaysTrue);
+}
+
+std::string ClientManager::info()
+{
+    return repo.report();
 }

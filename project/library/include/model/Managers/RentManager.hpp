@@ -27,6 +27,7 @@ public:
 
     void changeClientType(ClientPtr client);
 
+    std::string info();
 };
 
 #endif

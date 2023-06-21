@@ -4,6 +4,7 @@
 
 Mainframe::Mainframe(int ram) : physicalMemory(ram), remainingMemory(ram)
 {
+
 }
 
 Mainframe::~Mainframe()
@@ -28,9 +29,9 @@ void Mainframe::add(VirtualMachinePtr client)
         //EXCEPTION
         return;
     }
-    remainingMemory-=client->getRam();
     
     repo.push_back(client);
+    remainingMemory-=client->getRam();
 }
 
 void Mainframe::remove(VirtualMachinePtr client)

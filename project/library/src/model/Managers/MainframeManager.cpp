@@ -48,5 +48,12 @@ std::vector<VirtualMachinePtr> MainframeManager::findAllVirtualMachines()
     VirtualMachinePredicate alwaysTrue = [](VirtualMachinePtr ptr){
         return true;
     };
+
+    
     return findVirtualMachines(alwaysTrue);
 }
+
+    std::string MainframeManager::info()
+    {
+        return repo.report();
+    }
