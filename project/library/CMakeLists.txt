@@ -10,11 +10,11 @@ set(SOURCE_FILES
         src/model/Rent.cpp
         src/model/Repositories/ClientRepo.cpp 
         src/model/Repositories/RentRepo.cpp 
+        src/model/Repositories/StorageContainer.cpp
+        src/model/Repositories/Mainframe.cpp
         src/model/Managers/RentManager.cpp 
         src/model/Managers/MainframeManager.cpp 
         src/model/Managers/ClientManager.cpp 
-        src/model/Repositories/StorageContainer.cpp
-        src/model/Repositories/Mainframe.cpp
         )
 #Utwórz bibliotekę typu STATIC, SHARED albo MODULE ze wskazanych źródeł
 add_library(VmRentalLibrary ${SOURCE_FILES})

@@ -18,6 +18,7 @@ public:
     const int getRam() const;
     const int getId() const;
     const bool isArchive() const;
+    void setArchive(bool value);
     
     string getVirtualMachineInfo();
     virtual ~VirtualMachine();

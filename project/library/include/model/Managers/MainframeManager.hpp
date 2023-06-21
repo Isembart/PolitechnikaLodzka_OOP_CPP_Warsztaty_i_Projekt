@@ -1,14 +1,29 @@
-//
-// Created by student on 19.06.23.
-//
+#ifndef MainframeManagerHeader 
+#define MainframeManagerHeader
 
-#ifndef VIRTALMACHINERENTING_MAINFRAMEMENAGER_H
-#define VIRTALMACHINERENTING_MAINFRAMEMENAGER_H
+#include "model/Repositories/Mainframe.hpp"
+#include "typedefs.hpp"
+#include "model/VirtualMachine.hpp" 
 
+class MainframeManager
+{
+private:
+    Mainframe repo;    
+public:
+    MainframeManager(int RamMegabytes);
+    ~MainframeManager();
 
-class MainFrameMenager {
+    // VirtualMachinePtr registerBicycle(const std::string &plateNumber, const int &basePrice);
+    // VirtualMachinePtr registerMoped(const std::string &plateNumber, const int &basePrice, const int &engineDisplacement);
+    // VirtualMachinePtr registerCar(const std::string &_plateNumber,const int &_basePrice, const int &_engineDisplacement, const Segment &_segment);
 
+    VirtualMachinePtr registerVirtualmachine(int id,std::string OS, int RAM);
+
+    void unregisterVirtualMachine(VirtualMachinePtr vm);
+    void unregisterVirtualMachine(int Id);
+    VirtualMachinePtr getVirtualMachine(int id);
+    std::vector<VirtualMachinePtr> findVirtualMachines(VirtualMachinePredicate predicate);
+    std::vector<VirtualMachinePtr> findAllVirtualMachines();
 };
 
-
-#endif //VIRTALMACHINERENTING_MAINFRAMEMENAGER_H
+#endif
