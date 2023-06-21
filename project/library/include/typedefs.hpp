@@ -26,22 +26,17 @@ typedef std::shared_ptr<Mainframe> ManiframePtr;
 
 class ClientRepo;
 class RentRepo;
-class VehicleRepository;
+class Mainframe;
 
 class StorageContainer;
 
-// using std::shared_ptr;
-// typedef shared_ptr<Client> ClientPtr;
-// typedef shared_ptr<Rent> RentPtr;
-// typedef shared_ptr<Address> AddressPtr;
-
-
 typedef std::shared_ptr<ClientRepo> ClientRepositoryPtr;
 typedef std::shared_ptr<RentRepo> RentRepositoryPtr;
+typedef std::shared_ptr<Mainframe> MainframePtr;
 
-// typedef std::shared_ptr<ClientType> ClientTypePtr;
-
+//predicates
 typedef std::function<bool(ClientPtr)> ClientPredicate;
+typedef std::function<bool(VirtualMachinePtr)> VirtualMachinePredicate;
 typedef std::function<bool(RentPtr)> RentPredicate;
 
 #endif

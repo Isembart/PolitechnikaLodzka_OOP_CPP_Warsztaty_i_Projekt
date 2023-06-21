@@ -1,6 +1,6 @@
 #include <boost/test/unit_test.hpp>
-#include "repositories/RentRepository.h"
-#include "repositories/StorageContainer.h"
+#include "model/Repositories/RentRepo.hpp"
+#include "model/Repositories/StorageContainer.h"
 
 struct TestSuiteRentRepoFixture {
     StorageContainer container;

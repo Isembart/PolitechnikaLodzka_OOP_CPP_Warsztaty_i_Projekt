@@ -13,6 +13,8 @@ set(SOURCE_FILES
         src/model/Managers/RentManager.cpp 
         src/model/Managers/MainframeManager.cpp 
         src/model/Managers/ClientManager.cpp 
+        src/model/Repositories/StorageContainer.cpp
+        src/model/Repositories/Mainframe.cpp
         )
 #Utwórz bibliotekę typu STATIC, SHARED albo MODULE ze wskazanych źródeł
 add_library(VmRentalLibrary ${SOURCE_FILES})
@@ -32,10 +34,17 @@ set(SOURCE_TEST_FILES
         test/master.cpp 
         test/ClientTest.cpp
         test/RentTest.cpp
-        
         ) # tu w przyszłości będą dodawane pliki źródłowe testów
 
+
+set(SOURCE_REPO_TEST_FILES
+        test/master.cpp
+        test/ClientRepositoryTest.cpp
+        test/RentRepositoryTest.cpp 
+        )
+
 add_executable (vmRentalModelTest ${SOURCE_TEST_FILES})
+add_executable (repositoriesTest ${SOURCE_REPO_TEST_FILES})
 
 #dołącz bibliotekę z testowanymi klasami oraz bibliotekę boost.test do programu testów
 target_link_libraries (vmRentalModelTest PUBLIC
@@ -43,9 +52,13 @@ target_link_libraries (vmRentalModelTest PUBLIC
         ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
         )
 
+target_link_libraries (repositoriesTest PUBLIC
+        VmRentalLibrary
+        ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
+        )
 #dodaj test TestBiblioteki1. Instrukcji cmake add_test może być wiele.
 #Dodatkowe parametry wpływają na szczegółowość generowanego raportu. Standardowo znajduje się on w Testing/Temporary.
-add_test(ModelTest VmRentalLibraryTest
+add_test(ModelTest vmRentalModelTest
         --report_level=detailed
         --log_level=all
         --color_output=yes
@@ -54,3 +67,9 @@ add_test(ModelTest VmRentalLibraryTest
         add_custom_target(check ${CMAKE_COMMAND} -E env CTEST_OUTPUT_ON_FAILURE=1 BOOST_TEST_LOG_LEVEL=all
         ${CMAKE_CTEST_COMMAND} -C $<CONFIGURATION> --verbose
         WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
+
+add_test(RepoTest repositoriesTest
+        --report_level=detailed
+        --log_level=all
+        --color_output=yes
+        )

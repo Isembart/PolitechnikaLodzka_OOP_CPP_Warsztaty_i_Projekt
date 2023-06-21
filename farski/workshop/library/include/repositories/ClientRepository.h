@@ -19,7 +19,7 @@ public:
     std::string report();
     int size();
 
-    std::vector<ClientPtr> findBy(ClientPredicate) const;
+    std::vector<ClientPtr> findBy(ClientPredicate) const; //moje
     std::vector<ClientPtr> findAll() const;
     ClientPtr findByPersonalId(int personalID);
 };
