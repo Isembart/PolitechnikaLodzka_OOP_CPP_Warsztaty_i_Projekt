@@ -45,11 +45,11 @@ int main() {
    VirtualMachinePredicate isUbuntu = [](VirtualMachinePtr vm) {
       return vm->getOperatingSystem() == "Ubuntu"; 
    };
-   ClientPredicate isDebil = [](ClientPtr ct) { //xDDD przepraszam
+   ClientPredicate isWoman = [](ClientPtr ct) { //xDDD przepraszam
       return ct->getFirstName() == "Agata";
    };
-   rMan.rentVirtualMachine(cMan.findClients(isDebil).front(),mMan.findVirtualMachines(isUbuntu).front(),boost::posix_time::not_a_date_time);
-   rMan.rentVirtualMachine(cMan.findClients(isDebil).front(),mMan.getVirtualMachine(2),boost::posix_time::not_a_date_time); //default nie wypozyczy dwoch maszyn na raz 
+   rMan.rentVirtualMachine(cMan.findClients(isWoman).front(),mMan.findVirtualMachines(isUbuntu).front(),boost::posix_time::not_a_date_time);
+   rMan.rentVirtualMachine(cMan.findClients(isWoman).front(),mMan.getVirtualMachine(2),boost::posix_time::not_a_date_time); //default nie wypozyczy dwoch maszyn na raz 
 
    rMan.rentVirtualMachine(cMan.getClient(247653),mMan.getVirtualMachine(2),boost::posix_time::not_a_date_time); //ale uzytkownik pro moze
 
