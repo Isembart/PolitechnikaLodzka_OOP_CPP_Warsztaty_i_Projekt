@@ -9,7 +9,7 @@ StorageContainer::StorageContainer()
 {
     
     clientRepo = std::make_shared<ClientRepo>();
-    vmRepo = std::make_shared<Mainframe>();
+    vmRepo = std::make_shared<Mainframe>(16000);
     rentRepo = std::make_shared<RentRepo>();
     ClientPtr mariuszPudzianowski = std::make_shared<Client>("Mariusz","Pudzianowski",0,std::make_shared<Default>());
     ClientPtr Roman = std::make_shared<Client>("Roman","Kostrzewski",123,std::make_shared<Default>()); 

@@ -2,7 +2,7 @@
 #include "model/Repositories/Mainframe.hpp"
 #include "model/VirtualMachine.hpp"
 
-Mainframe::Mainframe()
+Mainframe::Mainframe(int ram) : physicalMemory(ram), remainingMemory(ram)
 {
 }
 
@@ -22,7 +22,15 @@ VirtualMachinePtr Mainframe::get(int index) const
 void Mainframe::add(VirtualMachinePtr client)
 {
     if(client == nullptr) return;
+    if (client->getRam() > remainingMemory)
+    {
+        /* code */
+        //EXCEPTION
+        return;
+    }
+    
     repo.push_back(client);
+    remainingMemory-=client->getRam();
 }
 
 void Mainframe::remove(VirtualMachinePtr client)
@@ -30,6 +38,7 @@ void Mainframe::remove(VirtualMachinePtr client)
     if(client == nullptr) return;
     auto newEnd = std::remove(repo.begin(),repo.end(),client);
     repo.erase(newEnd,repo.end());
+    remainingMemory+=client->getRam();
 }
 
 std::string Mainframe::report()
@@ -42,9 +51,14 @@ std::string Mainframe::report()
     return info;
 }
 
-int Mainframe::size()
+const int Mainframe::getPhysicalMemory() const
 {
-    return repo.size();
+    return physicalMemory;
+}
+
+const int Mainframe::getFreePhysicalMemory() const
+{
+    return remainingMemory;
 }
 
 std::vector<VirtualMachinePtr> Mainframe::findBy(VirtualMachinePredicate predicate) const
@@ -69,16 +83,16 @@ std::vector<VirtualMachinePtr> Mainframe::findAll() const
     return findBy(alwaysTrue);
 }
 
-// VirtualMachinePtr Mainframe::findByPlateNumber(std::string plateNumber) {
-//     VirtualMachinePredicate matchNumber = [plateNumber](VirtualMachinePtr ptr)
-//     {
-//         return ptr->getPlateNumber() == plateNumber; 
-//     };
+VirtualMachinePtr Mainframe::findByID(int id) {
+    VirtualMachinePredicate matchNumber = [id](VirtualMachinePtr ptr)
+    {
+        return ptr->getId() == id; 
+    };
 
-//     std::vector<VirtualMachinePtr> found = findBy(matchNumber);
-//     if(found.size() == 0) {
-//         return nullptr;
-//     }
+    std::vector<VirtualMachinePtr> found = findBy(matchNumber);
+    if(found.size() == 0) {
+        return nullptr;
+    }
 
-//     return found.at(0);
-// }
+    return found.at(0);
+}
