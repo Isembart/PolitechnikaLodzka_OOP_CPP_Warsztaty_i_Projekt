@@ -3,6 +3,8 @@
 Default::Default()
 {
     ClientType::maxComputers = 1;
+    ClientType::maxRAM = 4;
+
 }
 Default::~Default()
 {

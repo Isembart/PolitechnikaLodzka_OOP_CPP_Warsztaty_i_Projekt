@@ -7,6 +7,7 @@ class ClientType
 {
 protected:
     int maxComputers;
+    int maxRAM;
     
 public:
     ClientType();
