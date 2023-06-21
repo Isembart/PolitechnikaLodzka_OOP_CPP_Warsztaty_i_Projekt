@@ -30,21 +30,28 @@ include_directories(
         ${Boost_INCLUDE_DIRS}
 )
 
-set(SOURCE_TEST_FILES 
+set(modelTestFiles 
         test/master.cpp 
         test/ClientTest.cpp
         test/RentTest.cpp
         ) # tu w przyszłości będą dodawane pliki źródłowe testów
 
 
-set(SOURCE_REPO_TEST_FILES
+set(repoTestFiles
         test/master.cpp
         test/ClientRepositoryTest.cpp
         test/RentRepositoryTest.cpp 
         )
 
-add_executable (vmRentalModelTest ${SOURCE_TEST_FILES})
-add_executable (repositoriesTest ${SOURCE_REPO_TEST_FILES})
+set(managerTestFiles
+        test/master.cpp
+        test/RentManagerTest.cpp
+        test/ClientManagerTest.cpp
+        )
+        
+add_executable (vmRentalModelTest ${modelTestFiles})
+add_executable (repositoriesTest ${repoTestFiles})
+add_executable (managerTest ${managerTestFiles})
 
 #dołącz bibliotekę z testowanymi klasami oraz bibliotekę boost.test do programu testów
 target_link_libraries (vmRentalModelTest PUBLIC
@@ -53,6 +60,11 @@ target_link_libraries (vmRentalModelTest PUBLIC
         )
 
 target_link_libraries (repositoriesTest PUBLIC
+        VmRentalLibrary
+        ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
+        )
+
+target_link_libraries (managerTest PUBLIC
         VmRentalLibrary
         ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
         )
@@ -73,3 +85,9 @@ add_test(RepoTest repositoriesTest
         --log_level=all
         --color_output=yes
         )
+
+add_test(ManagersTest managerTest
+        --report_level=detailed
+        --log_level=all
+        --color_output=yes
+)
