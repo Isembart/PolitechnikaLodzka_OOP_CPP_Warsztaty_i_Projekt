@@ -47,7 +47,8 @@ set(managerTestFiles
         test/master.cpp
         test/RentManagerTest.cpp
         test/ClientManagerTest.cpp
-        test/MainFrameTest.cpp test/MainFrameMenagerTest.cpp)
+        test/MainFrameTest.cpp
+        test/MainFrameMenagerTest.cpp)
         
 add_executable (vmRentalModelTest ${modelTestFiles})
 add_executable (repositoriesTest ${repoTestFiles})
