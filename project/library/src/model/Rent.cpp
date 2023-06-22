@@ -53,6 +53,7 @@ std::string Rent::getRentInfo()
 
 void Rent::endRent(boost::posix_time::ptime _endTime)
 {
+    if(this == nullptr) return; //jesli nie udało się utworzyć renta to bedzie on mial wartosc nullptr, proba zakonczenia takiego renta skutkowalaby "segmentation fault"
     if(endTime!=boost::posix_time::not_a_date_time) return; //metoda nie może dopuścić do nadpisania już ustalonego czasu zakończenia (nowa wartość może być ustalona tylko wtedy, gdy dotychczasowa wartość to not_a_date_time).
     
     boost::posix_time::ptime now = boost::posix_time::second_clock::local_time();;

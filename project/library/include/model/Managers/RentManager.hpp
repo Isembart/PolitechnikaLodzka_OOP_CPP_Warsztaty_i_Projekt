@@ -25,7 +25,7 @@ public:
     RentPtr rentVirtualMachine(ClientPtr client, VirtualMachinePtr VirtualMachine, boost::posix_time::ptime startTime);
     void returnVirtualMachine(VirtualMachinePtr VirtualMachine);
 
-    void changeClientType(ClientPtr client);
+    // void changeClientType(ClientPtr client);
 
     std::string info();
 };
