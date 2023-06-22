@@ -90,23 +90,23 @@ void RentManager::returnVirtualMachine(VirtualMachinePtr VirtualMachine) {
         found->endRent(boost::posix_time::not_a_date_time);
         currentRents.remove(found);
         archiveRents.add(found);
-        changeClientType(found->getClient());
+        // changeClientType(found->getClient());
     }
 }
 
 //Trzeba ustalić balans od którego jest wersja pro??
-void RentManager::changeClientType(ClientPtr client)
-{
-    double sum = checkClientRentBalance(client);
-    if(sum <500) {
-        client->setClientType(std::make_shared<Default>());
-    }
-    else {
-        client->setClientType(std::make_shared<Pro>());
+// void RentManager::changeClientType(ClientPtr client)
+// {
+//     double sum = checkClientRentBalance(client);
+//     if(sum <500) {
+//         client->setClientType(std::make_shared<Default>());
+//     }
+//     else {
+//         client->setClientType(std::make_shared<Pro>());
 
        
-    }
-}
+//     }
+// }
 
  std::string RentManager::info()
         {

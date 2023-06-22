@@ -17,7 +17,7 @@ void printWholeInfo(ClientManager cMan, RentManager rMan, MainframeManager mMan)
    
    cout << "ClientManager info:\n"<< cMan.info()<<endl;
    cout << "RentManger info:\n"<< rMan.info()<<endl;
-   cout << "MainframeManager info:\n"<< mMan.info()<<endl;
+   cout << "MainframeManager info:\n"<< mMan.info();
 }
 
 int main() {
@@ -38,7 +38,7 @@ int main() {
 
    printWholeInfo(cMan,rMan,mMan);
 
-   cout <<endl<<  "#########renting machine#########" << endl;
+   cout <<endl<<  "################renting machine################" << endl;
    rMan.rentVirtualMachine(cMan.getClient(247653),mMan.getVirtualMachine(3),boost::posix_time::not_a_date_time);
    
 
@@ -48,12 +48,19 @@ int main() {
    ClientPredicate isWoman = [](ClientPtr ct) { //xDDD przepraszam
       return ct->getFirstName() == "Agata";
    };
-   rMan.rentVirtualMachine(cMan.findClients(isWoman).front(),mMan.findVirtualMachines(isUbuntu).front(),boost::posix_time::not_a_date_time);
-   rMan.rentVirtualMachine(cMan.findClients(isWoman).front(),mMan.getVirtualMachine(2),boost::posix_time::not_a_date_time); //default nie wypozyczy dwoch maszyn na raz 
-
-   rMan.rentVirtualMachine(cMan.getClient(247653),mMan.getVirtualMachine(2),boost::posix_time::not_a_date_time); //ale uzytkownik pro moze
-
+   auto r1 = rMan.rentVirtualMachine(cMan.findClients(isWoman).front(),mMan.findVirtualMachines(isUbuntu).front(),boost::posix_time::not_a_date_time);
+   auto r2 = rMan.rentVirtualMachine(cMan.findClients(isWoman).front(),mMan.getVirtualMachine(2),boost::posix_time::not_a_date_time); //default nie wypozyczy dwoch maszyn na raz 
+   auto r3 = rMan.rentVirtualMachine(cMan.getClient(247653),mMan.getVirtualMachine(2),boost::posix_time::not_a_date_time); //ale uzytkownik pro moze
 
    printWholeInfo(cMan,rMan,mMan);
+
+   cout <<endl<<  "####################ending all rents###############" << endl;
+
+   rMan.returnVirtualMachine(v1);
+   rMan.returnVirtualMachine(mMan.getVirtualMachine(2));
+   rMan.returnVirtualMachine(mMan.getVirtualMachine(3));
+
+   printWholeInfo(cMan,rMan,mMan);
+
    
 }
