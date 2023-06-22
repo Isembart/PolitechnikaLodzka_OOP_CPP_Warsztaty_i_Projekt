@@ -63,6 +63,7 @@ int main(int argc, char* argv[]) {
 
     rMan.rentVehicle(cMan.getClient(12),vMan.getVehicle("WZY01"),boost::posix_time::second_clock::local_time() - boost::gregorian::days(2));
     rMan.rentVehicle(cMan.getClient(12),vMan.getVehicle("WZY02"),boost::posix_time::second_clock::local_time() - boost::gregorian::days(3));
+    rMan.rentVehicle(cMan.getClient(12),vMan.getVehicle("WZY02"),boost::posix_time::second_clock::local_time() - boost::gregorian::days(3));
 
     VehiclePredicate tanie = [](VehiclePtr ptr) {
         return ptr->getActualRentalPrice() < 100;
@@ -75,8 +76,8 @@ int main(int argc, char* argv[]) {
     cout << "Drogie: "<< vMan.findVehicles(drogie).begin()->get()->getVehicleInfo() <<" Cena: "<<vMan.findVehicles(drogie).begin()->get()->getActualRentalPrice() <<endl ;
 
     cout << cMan.getClient(12)->getClientInfo() << endl;
-    rMan.returnVehicle(vMan.getVehicle("WZY01"));
-    rMan.returnVehicle(vMan.getVehicle("WZY02"));
+    // rMan.returnVehicle(vMan.getVehicle("WZY01"));
+    // rMan.returnVehicle(vMan.getVehicle("WZY02"));
 
     cout << cMan.getClient(12)->getClientInfo() << endl;
     return 0;

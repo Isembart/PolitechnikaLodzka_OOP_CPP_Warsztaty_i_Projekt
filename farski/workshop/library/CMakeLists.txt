@@ -25,6 +25,7 @@ set(SOURCE_FILES
     src/model/Managers/ClientManager.cpp
     src/model/Managers/VehicleManager.cpp
     src/model/Managers/RentManager.cpp
+    src/exceptions/RentException.cpp
 )
 #Utwórz bibliotekę typu STATIC, SHARED albo MODULE ze wskazanych źródeł
 add_library(Library ${SOURCE_FILES})

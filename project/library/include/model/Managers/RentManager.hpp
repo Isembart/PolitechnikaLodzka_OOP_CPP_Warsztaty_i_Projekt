@@ -20,7 +20,7 @@ public:
     RentPtr getVirtualMachineRent(VirtualMachinePtr VirtualMachine);
     std::vector<RentPtr> findRents(RentPredicate predicate);
     std::vector<RentPtr> findAllRents();
-    double checkClientRentBalance(ClientPtr client);
+    // double checkClientRentBalance(ClientPtr client);
 
     RentPtr rentVirtualMachine(ClientPtr client, VirtualMachinePtr VirtualMachine, boost::posix_time::ptime startTime);
     void returnVirtualMachine(VirtualMachinePtr VirtualMachine);

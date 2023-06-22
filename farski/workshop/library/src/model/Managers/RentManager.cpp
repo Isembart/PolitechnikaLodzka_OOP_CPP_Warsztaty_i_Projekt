@@ -5,6 +5,8 @@
 #include "model/ClientTypes/Gold.h"
 #include "model/ClientTypes/Platinum.h"
 #include "model/ClientTypes/Diamond.h"
+
+#include "exceptions/RentException.h"
 RentManager::RentManager()
 {
     currentRents = RentRepository();
@@ -61,23 +63,31 @@ double RentManager::checkClientRentBalance(ClientPtr client)
 }
 
     RentPtr RentManager::rentVehicle(ClientPtr client, VehiclePtr vehicle, boost::posix_time::ptime startTime=boost::posix_time::not_a_date_time)
-    {
-        //klient i pojazd nie są archiwalne -> Client i Vehicle Manager nie zwrócą archiwalnego pojazdu i klienta
-        if(getAllClientRents(client).size() >= client->getMaxVehicles()) {
-            //Limit pojazdów wykorzystany
-            return nullptr;
-        }
-
-        if(getVehicleRent(vehicle) != nullptr) {
-            //Pojazd jest wypozyczony
-            return nullptr;
-        }
+     try {
         
-        RentPtr result = std::make_shared<Rent>(id,client,vehicle,startTime);
-        currentRents.add(result);
-        id++;
+            //klient i pojazd nie są archiwalne -> Client i Vehicle Manager nie zwrócą archiwalnego pojazdu i klienta
+            if(getAllClientRents(client).size() >= client->getMaxVehicles()) {
+                //Limit pojazdów wykorzystany
+                // return nullptr;
+                throw(RentException("Limit pojazdów przekroczony!"));
+            }
 
-        return result;
+            if(getVehicleRent(vehicle) != nullptr) {
+                //Pojazd jest wypozyczony
+                // return nullptr;
+                throw(RentException("Pojazd jest już wypożyczony!"));
+            }
+        
+            RentPtr result = std::make_shared<Rent>(id,client,vehicle,startTime);
+            currentRents.add(result);
+            id++;
+
+            return result;
+        
+    }
+    catch(RentException exc){
+        std::cout <<"\033[1;31m" << exc.what() <<"\033[0m"  << std::endl;
+        return nullptr;
     }
 
     void RentManager::returnVehicle(VehiclePtr vehicle) {
