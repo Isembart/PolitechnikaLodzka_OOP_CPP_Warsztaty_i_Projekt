@@ -28,7 +28,9 @@ public:
     void setClientType(ClientTypePtr _ClientType);
 
     const int getMaxComputers() const;
-    
+    const int getMaxRAM() const;
+
+
     std::string getClientInfo();
 
     const bool isArchive() const;

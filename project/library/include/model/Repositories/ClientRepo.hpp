@@ -3,26 +3,26 @@
 
 #include <vector>
 
-#include "model/Client.h"
-#include "typyedefs.h"
+#include "model/Client.hpp"
+#include "typedefs.hpp"
 
-class ClientRepository
+class ClientRepo
 {
 private:
     std::vector<ClientPtr> repo;
 public:
-    ClientRepository(/* args */);
-    ~ClientRepository();
+    ClientRepo(/* args */);
+    ~ClientRepo();
     ClientPtr get(int index) const;
     void add(ClientPtr client);
     void remove(ClientPtr client);
     std::string report();
     int size();
 
-    std::vector<ClientPtr> findBy(ClientPredicate) const; //moje
+    std::vector<ClientPtr> findBy(ClientPredicate) const;
     std::vector<ClientPtr> findAll() const;
     ClientPtr findByPersonalId(int personalID);
 };
- 
+
 
 #endif

@@ -1,9 +1,9 @@
 #include <boost/test/unit_test.hpp>
-#include "repositories/ClientRepository.h"
-#include "repositories/StorageContainer.h"
+#include "model/Repositories/ClientRepo.hpp"
+#include "model/Repositories/StorageContainer.h"
 #include <memory>
-#include "model/ClientTypes/Default.h"
-#include "typyedefs.h"
+#include "model/ClientTypes/Default.hpp"
+#include "typedefs.hpp"
 
 struct TestSuiteClientRepoFixture {
     StorageContainer container;
@@ -31,7 +31,7 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteClientRepo,TestSuiteClientRepoFixture)
 
     BOOST_AUTO_TEST_CASE(addTestValidArgument) {
         
-        Client newTestClient("Teść","Testowy",0,nullptr,std::make_shared<Default>());
+        Client newTestClient("Teść","Testowy",0,std::make_shared<Default>());
         container.getClientRepo()->add(std::make_shared<Client>(newTestClient));
         BOOST_TEST(container.getClientRepo()->get(2)->getFirstName() == "Teść");
     }
