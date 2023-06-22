@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include "model/Client.hpp"
 #include "typedefs.hpp"
@@ -36,7 +37,6 @@ int main() {
    printWholeInfo(cMan,rMan,mMan);
 
    cout <<endl<<  "################renting machine################" << endl;
-   rMan.rentVirtualMachine(cMan.getClient(247653),mMan.getVirtualMachine(3),boost::posix_time::not_a_date_time);
    
 
    VirtualMachinePredicate isUbuntu = [](VirtualMachinePtr vm) {
@@ -45,6 +45,7 @@ int main() {
    ClientPredicate isWoman = [](ClientPtr ct) { //xDDD przepraszam
       return ct->getFirstName() == "Agata";
    };
+   auto r0 = rMan.rentVirtualMachine(cMan.getClient(247653),mMan.getVirtualMachine(3),boost::posix_time::not_a_date_time);
    auto r1 = rMan.rentVirtualMachine(cMan.findClients(isWoman).front(),mMan.findVirtualMachines(isUbuntu).front(),boost::posix_time::not_a_date_time);
    auto r2 = rMan.rentVirtualMachine(cMan.findClients(isWoman).front(),mMan.getVirtualMachine(2),boost::posix_time::not_a_date_time); //default nie wypozyczy dwoch maszyn na raz 
    auto r3 = rMan.rentVirtualMachine(cMan.getClient(247653),mMan.getVirtualMachine(2),boost::posix_time::not_a_date_time); //ale uzytkownik pro moze
