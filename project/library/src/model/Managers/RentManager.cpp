@@ -67,7 +67,7 @@ RentPtr RentManager::rentVirtualMachine(ClientPtr client, VirtualMachinePtr Virt
         return nullptr;
     }
 
-    if(VirtualMachine->getRAM()>client->getMaxRAM()){
+    if(VirtualMachine->getRAM()>client->getMaxRAM() && client->getMaxRAM() != -1){
         //wartosc Ramu jest za duza niz pozwala na to typ klienta
         return nullptr;
     }

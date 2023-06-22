@@ -98,6 +98,6 @@ VirtualMachinePtr Mainframe::findByID(int id) {
     return found.at(0);
 }
 
-Mainframe::Mainframe(const int i, const int i1, std::shared_ptr <Default> sharedPtr) {
-
-}
+// Mainframe::Mainframe(const int i, const int i1, std::shared_ptr <Default> sharedPtr) {
+//co to jest???
+// }

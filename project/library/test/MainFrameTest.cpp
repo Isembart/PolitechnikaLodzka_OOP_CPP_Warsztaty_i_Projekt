@@ -20,9 +20,10 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteClient, TestSuiteMainframeFixture)
 //test getterów
 
     BOOST_AUTO_TEST_CASE(GettersTests) {
-        Mainframe mainframe1(testphysicalMemory,testremainingMemory,std::make_shared<Default>());
+        // Mainframe mainframe1(testphysicalMemory,testremainingMemory,std::make_shared<Default>()); //co to jest za konstruktor 
+        Mainframe mainframe1(testphysicalMemory);
         BOOST_TEST_REQUIRE(mainframe1.getPhysicalMemory() == testphysicalMemory);
-        BOOST_TEST_REQUIRE(mainframe1.getFreePhysicalMemory() == testremainingMemory);
+        BOOST_TEST_REQUIRE(mainframe1.getFreePhysicalMemory() == testphysicalMemory);
     }
 
 //
