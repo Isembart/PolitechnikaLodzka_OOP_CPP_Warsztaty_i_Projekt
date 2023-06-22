@@ -26,6 +26,8 @@ public:
     std::vector<VirtualMachinePtr> findBy(VirtualMachinePredicate predicate) const;
     std::vector<VirtualMachinePtr> findAll() const;
     VirtualMachinePtr findByID(int plateNumber);
+
+    Mainframe(const int i, const int i1, std::shared_ptr <Default> sharedPtr);
 };
  
 
